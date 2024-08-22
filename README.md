@@ -620,7 +620,7 @@ Nous verrons notre route `public_accueil` avec la méthode `ANY` et le chemin `/
 
 Les routes en `_...` sont des routes qui permettent de voir les requêtes SQL, les requêtes HTTP, les variables globales, etc... en mode développement.
 
-[V0.2](https://github.com/mikhawa/symfony-2023-05-10/commit/f5d6f13df83f64551cfc8250a65eda8ed964ed29#diff-b1b5b30007fdfcd4be14b1260eb4278fa1bdc57cc7cd6224ef521116360b99e2)
+[V0.2](https://github.com/mikhawa/Symfony-6.4-LTS/commit/1eabf668c19d7fbe39ffca19b40108e97fa9f4a7#diff-b1b5b30007fdfcd4be14b1260eb4278fa1bdc57cc7cd6224ef521116360b99e2)
 
 ---
 
