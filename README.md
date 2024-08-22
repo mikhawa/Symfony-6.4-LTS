@@ -4,6 +4,10 @@
 
 Version LTS (Long Term Support) de Symfony en date du 22/08/2024
 
+Avec 2 ans de support et 3 ans de support de sécurité :
+
+https://endoflife.date/symfony
+
 ## Installation de Symfony dans l'environnement de développement sous Windows
 
 ## Lien vers le site de démo
@@ -210,6 +214,12 @@ Mais lequel choisir ? Tout dépend des problèmes que vous essayez de résoudre 
 
 Symfony convient mieux aux applications web complexes ou aux projets de développement à long terme qui nécessitent de nouvelles techniques de développement.
 
+Par exemple Symfony propose 4 ans de support pour les versions majeures, Laravel propose 6 mois de support pour les versions majeures.
+
+https://endoflife.date/laravel
+
+https://endoflife.date/laravel
+
 Cependant, nous suggérons Laravel si vous souhaitez créer une application web simple avec peu de frais et dans un délai plus court.
 
 ### Prérequis
@@ -223,8 +233,6 @@ Cependant, nous suggérons Laravel si vous souhaitez créer une application web 
 - Symfony CLI
 - Git
 - MySQL - MariaDB (depuis WampServer)
-- Node.js (pour Webpack Encore)
-- Yarn (pour Webpack Encore)
 
 ---
 
@@ -260,25 +268,6 @@ Lien de téléchargement de Git :
 https://git-scm.com/download/win
 
 
-Lien de téléchargement de Node.js :
-
-https://nodejs.org/fr/download
-
-Ou le mettre à jour avec la commande :
-
-```bash
-npm install -g npm@latest
-```
-
-Lien de téléchargement de Yarn :
-
-https://classic.yarnpkg.com/lang/en/docs/install/#windows-stable
-
-ou l'installer avec la commande :
-
-```bash
-npm install --global yarn
-```
 
 ---
 
@@ -312,7 +301,7 @@ symfony -V
 git --version
 ```
 
-- Créer un nouveau projet Symfony, ici, nous ne choisirons pas la version `LTS` (Long Term Support), mais la dernière version stable
+- Créer un nouveau projet Symfony, ici, nous choisirons la version `LTS` (Long Term Support)
 
 Documentation de versioning de Symfony :
 
@@ -333,7 +322,7 @@ Retour au [Menu de navigation](#menu-de-navigation)
 
 ### Création d'un projet de démonstration
 
-Nous allons créer un projet de démonstration, la documentation se trouve à cette adresse :
+Nous allons créer un projet de démonstration en dehors du projet actuel, la documentation se trouve à cette adresse :
 
 https://symfony.com/doc/current/setup.html#the-symfony-demo-application
 
@@ -343,7 +332,8 @@ Nous utilisons la commande suivante :
 symfony new symfonyDemo --demo
 ```
 
-Nous pouvons entrer dans le dossier et tester ce projet de démonstration, la base de donnée étant déjà configurée en `SQLite`, nous pouvons lancer le serveur web avec la commande suivante :
+J'ai mis sur github le projet de démonstration à cette adresse :
+https://github.com/mikhawa/SymfonyDemo08082024
 
 ```bash
 symfony serve
@@ -355,6 +345,8 @@ http://127.0.0.1:8000/
 
 Cette démo permet de tester les fonctionnalités de Symfony, et de voir comment est structuré un projet Symfony.
 
+J'ai effectué la conversion de `SQLite` à `MySQL` pour la base de données.
+
 ---
 
 Retour au [Menu de navigation](#menu-de-navigation)
@@ -363,18 +355,15 @@ Retour au [Menu de navigation](#menu-de-navigation)
 
 ### Création d'un nouveau projet Symfony
 
-L'écriture de la commande suivante va créer un nouveau projet (dossier) Symfony, en utilisant la dernière version stable de Symfony, et en utilisant le template `webapp`, qui est un template de base pour créer une application web.
+L'écriture de la commande suivante va créer un nouveau projet (dossier) Symfony, en utilisant la dernière version `LTS` de Symfony, et en utilisant le template `webapp`, qui est un template de base pour créer une application web.
 
-symfony new `nom_du_projet` --webapp
 
-Lors de l'écriture de ces lignes la version stable de Symfony est la version 6.2.10 (La LTS est la version 5.4.27). Pour voir les versions LTS de nombreux projets, vous pouvez consulter le lien suivant :
-
-https://endoflife.date/symfony
+Lors de l'écriture de ces lignes la version LTS de Symfony est la version 6.4.10 
 
 Dans la console, nous allons écrire la commande suivante :
 
 ```bash
-symfony new symfony6 --webapp
+symfony new symfony6 --webapp --version=lts
 ```
 
 Voici le lien de la documentation officielle de Symfony pour créer un nouveau projet :
