@@ -762,7 +762,7 @@ Pour debugger les routes, nous pouvons utiliser la commande suivante :
 php bin/console debug:router
 ```
 
-[V0.3.2]()
+[V0.3.2](https://github.com/mikhawa/Symfony-6.4-LTS/commit/a27cedd9db12f1201b396326fbc05ca5bf16f6ea)
 
 ---
 
