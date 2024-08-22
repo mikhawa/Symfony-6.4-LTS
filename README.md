@@ -586,7 +586,7 @@ Retour au [Menu de navigation](#menu-de-navigation)
 
 Dans le fichier `src/Controller/PublicController.php`, nous allons modifier la route de la méthode `index()`.
 
-Nous choisissons de mettre le nom de la route en `annotation` pour éviter de devoir la mettre dans le fichier `config/routes.yaml` (ce qui est possible également, comme dans Laravel, par exemple, mais ce n'est pas la méthode préconisée par Symfony).
+Nous choisissons de mettre le nom de la route en `attributes` pour éviter de devoir la mettre dans le fichier `config/routes.yaml` (ce qui est possible également, comme dans Laravel, par exemple, mais ce n'est pas la méthode préconisée par Symfony).
 
 
 Nous choisissons le chemin de la page d'accueil à la racine du site `/`, et nous la nommons `public_accueil`
@@ -620,7 +620,7 @@ Nous verrons notre route `public_accueil` avec la méthode `ANY` et le chemin `/
 
 Les routes en `_...` sont des routes qui permettent de voir les requêtes SQL, les requêtes HTTP, les variables globales, etc... en mode développement.
 
-[V0.0.1](https://github.com/mikhawa/symfony-2023-05-10/commit/f5d6f13df83f64551cfc8250a65eda8ed964ed29#diff-b1b5b30007fdfcd4be14b1260eb4278fa1bdc57cc7cd6224ef521116360b99e2)
+[V0.2](https://github.com/mikhawa/symfony-2023-05-10/commit/f5d6f13df83f64551cfc8250a65eda8ed964ed29#diff-b1b5b30007fdfcd4be14b1260eb4278fa1bdc57cc7cd6224ef521116360b99e2)
 
 ---
 
