@@ -529,7 +529,7 @@ class PublicController extends AbstractController
 }
 ```
 
-Fichier Twig :
+Fichier Twig (`templates/public/index.html.twig`) :
 ```twig
 {% extends 'base.html.twig' %}
 
@@ -555,12 +555,12 @@ Retour au [Menu de navigation](#menu-de-navigation)
 
 On peut créer des routes en utilisant 4 méthodes différentes :
 
-- `annotation` : dans le contrôleur
+- `annotation` ou actuellement `attributes` : dans le contrôleur
 - `yaml` : dans le fichier `config/routes.yaml`
 - `xml` : dans le fichier `config/routes.xml`
 - `php` : dans le fichier `config/routes.php`
 
-Symfony utilise par défaut la méthode `annotation` et l'utilisation des `attributs` (depuis PHP 8) `#[Route()]` dans les contrôleurs.
+Symfony utilise par défaut la méthode `annotation` et l'utilisation des `attributes` (depuis PHP 8) `#[Route()]` dans les contrôleurs.
 
 Voir la documentation :
 
