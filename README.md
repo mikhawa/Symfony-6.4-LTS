@@ -529,7 +529,7 @@ class PublicController extends AbstractController
 }
 ```
 
-Fichier Twig :
+Fichier Twig (`templates/public/index.html.twig`) :
 ```twig
 {% extends 'base.html.twig' %}
 
@@ -555,12 +555,12 @@ Retour au [Menu de navigation](#menu-de-navigation)
 
 On peut créer des routes en utilisant 4 méthodes différentes :
 
-- `annotation` : dans le contrôleur
+- `annotation` ou actuellement `attributes` : dans le contrôleur
 - `yaml` : dans le fichier `config/routes.yaml`
 - `xml` : dans le fichier `config/routes.xml`
 - `php` : dans le fichier `config/routes.php`
 
-Symfony utilise par défaut la méthode `annotation` et l'utilisation des `attributs` (depuis PHP 8) `#[Route()]` dans les contrôleurs.
+Symfony utilise par défaut la méthode `annotation` et l'utilisation des `attributes` (depuis PHP 8) `#[Route()]` dans les contrôleurs.
 
 Voir la documentation :
 
@@ -586,7 +586,7 @@ Retour au [Menu de navigation](#menu-de-navigation)
 
 Dans le fichier `src/Controller/PublicController.php`, nous allons modifier la route de la méthode `index()`.
 
-Nous choisissons de mettre le nom de la route en `annotation` pour éviter de devoir la mettre dans le fichier `config/routes.yaml` (ce qui est possible également, comme dans Laravel, par exemple, mais ce n'est pas la méthode préconisée par Symfony).
+Nous choisissons de mettre le nom de la route en `attributes` pour éviter de devoir la mettre dans le fichier `config/routes.yaml` (ce qui est possible également, comme dans Laravel, par exemple, mais ce n'est pas la méthode préconisée par Symfony).
 
 
 Nous choisissons le chemin de la page d'accueil à la racine du site `/`, et nous la nommons `public_accueil`
@@ -620,7 +620,7 @@ Nous verrons notre route `public_accueil` avec la méthode `ANY` et le chemin `/
 
 Les routes en `_...` sont des routes qui permettent de voir les requêtes SQL, les requêtes HTTP, les variables globales, etc... en mode développement.
 
-[V0.0.1](https://github.com/mikhawa/symfony-2023-05-10/commit/f5d6f13df83f64551cfc8250a65eda8ed964ed29#diff-b1b5b30007fdfcd4be14b1260eb4278fa1bdc57cc7cd6224ef521116360b99e2)
+[V0.2](https://github.com/mikhawa/Symfony-6.4-LTS/commit/1eabf668c19d7fbe39ffca19b40108e97fa9f4a7#diff-b1b5b30007fdfcd4be14b1260eb4278fa1bdc57cc7cd6224ef521116360b99e2)
 
 ---
 
