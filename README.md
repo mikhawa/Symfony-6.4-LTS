@@ -834,11 +834,10 @@ Nous allons utiliser Mysql, mais vous pouvez utiliser PostgreSQL, SQLite, …
 # .env.local
 
 ###> doctrine/doctrine-bundle ###
-DATABASE_URL="mysql://root:@127.0.0.1:3306/sym_64?serverVersion=8.2.0-MariaDB&charset=utf8mb4"
+DATABASE_URL="mysql://root:@127.0.0.1:3306/sym_64?serverVersion=8.2.0&charset=utf8mb4"
 # DATABASE_URL="postgresql://app:!ChangeMe!@127.0.0.1:5432/app?serverVersion=15&charset=utf8"
 ###< doctrine/doctrine-bundle ###
 ```
-
 
 
 ---
@@ -855,7 +854,7 @@ Nous allons créer la base de données en utilisant la commande suivante :
 php bin/console doctrine:database:create
 ```
 
-[V0.0.4](https://github.com/mikhawa/symfony-2023-05-10/commit/aacd2d2e2c44e0b0b95ae5b2fc645c08f414aa76)
+[V0.4](https://github.com/mikhawa/Symfony-6.4-LTS/commit/a27cedd9db12f1201b396326fbc05ca5bf16f6ea)
 
 
 ---
