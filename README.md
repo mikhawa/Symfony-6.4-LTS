@@ -854,7 +854,7 @@ Nous allons créer la base de données en utilisant la commande suivante :
 php bin/console doctrine:database:create
 ```
 
-[V0.4](https://github.com/mikhawa/Symfony-6.4-LTS/commit/a27cedd9db12f1201b396326fbc05ca5bf16f6ea)
+[V0.4](https://github.com/mikhawa/Symfony-6.4-LTS/commit/eafd2e93820afa041b0849f7686a89057188717f)
 
 
 ---
