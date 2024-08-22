@@ -164,7 +164,9 @@ Retour au [Menu de navigation](#menu-de-navigation)
 
 La première version de Symfony, la version 1.0, a été publiée en octobre 2005. Elle a rapidement gagné en popularité auprès de la communauté des développeurs PHP en raison de sa simplicité et de sa flexibilité.
 
-Aujourd'hui, Symfony est l'un des frameworks web les plus populaires pour le développement d'applications PHP. Il est utilisé par des entreprises de toutes tailles, des petites start-ups aux grandes entreprises internationales. La communauté Symfony est également très active et contribue régulièrement à l'amélioration du framework en fournissant des mises à jour, des correctifs de bugs et de nouveaux composants.
+Aujourd'hui, Symfony est l'un des frameworks web les plus populaires pour le développement d'applications PHP demandant stabilité et une grande maintenabilité. 
+
+Il est utilisé par des entreprises de toutes tailles, des petites start-ups aux grandes entreprises internationales. La communauté Symfony est également très active et contribue régulièrement à l'amélioration du framework en fournissant des mises à jour, des correctifs de bugs et de nouveaux composants.
 
 Symfony est basé sur le modèle `MVC` (Modèle-Vue-Contrôleur), qui est un modèle de conception logicielle couramment utilisé pour le développement d'applications web. Il fournit une structure claire et organisée pour le code source de l'application, ce qui facilite la maintenance et l'évolutivité de l'application.
 
@@ -182,7 +184,7 @@ Symfony offre plusieurs avantages qui le distinguent des autres frameworks PHP, 
 
 2. **Communauté et Support** : Symfony bénéficie d'une large communauté de développeurs et d'un solide support professionnel. Cela signifie que les problèmes et les questions trouvent souvent des réponses rapidement.
 
-3. **Performance** : Bien que la performance puisse varier en fonction de la manière dont il est utilisé, Symfony est optimisé pour être rapide et efficace, avec des outils intégrés pour le profilage et la débogage.
+3. **Performance** : Bien que la performance puisse varier en fonction de la manière dont il est utilisé, Symfony est optimisé pour être rapide et efficace, avec des outils intégrés pour le profilage et le débogage.
 
 4. **Sécurité** : La sécurité est une priorité pour Symfony, qui offre de nombreuses fonctionnalités et configurations de sécurité intégrées pour protéger les applications contre les vulnérabilités courantes du web.
 
@@ -236,7 +238,7 @@ Lien de téléchargement de composer :
 
 https://getcomposer.org/download/
 
-ou le mettre à jour avec la commande :
+Le mettre à jour avec la commande :
 
 ```bash
 composer self-update
@@ -262,7 +264,7 @@ Lien de téléchargement de Node.js :
 
 https://nodejs.org/fr/download
 
-ou le mettre à jour avec la commande :
+Ou le mettre à jour avec la commande :
 
 ```bash
 npm install -g npm@latest
