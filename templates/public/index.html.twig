@@ -15,19 +15,6 @@
     <ul>
         <li>Your controller at <code>C:/Users/micha/MesDocuments/SITES/2024/Symfony-6.4-LTS/src/Controller/PublicController.php</code></li>
         <li>Your template at <code>C:/Users/micha/MesDocuments/SITES/2024/Symfony-6.4-LTS/templates/public/index.html.twig</code></li>
-        <li>Me <a href="{{ path('public_contact') }}">contacter</a></li>
-        # chemin vers la page de l'article en utilisant son nom de route (public_article) et en envoyant l'id 1
-        en paramètre#}
-        <li>Un <a href="{{ path('public_article', {'id': 1}) }}">article dont l'id vaut 1</a></li>
-        {# chemin vers la page de l'article en utilisant son nom  de route (public_article_type)
-et en envoyant l'id 1 en paramètre protégé#}
-        <li>Un <a href="{{ path('public_article_type', {'id': 2}) }}">article dont l'id vaut 2</a> (numérique entier non signé)</li>
-        {# chemin vers la page de l'article en utilisant son nom  de route (public_article_type_default)
-sans envoyer de paramètre#}
-        <li>Un <a href="{{ path('public_article_type_default') }}">articleTypeDefault
-                sans id</a></li>
-        <li>Un <a href="{{ path('public_article_type_default', {'id': 15}) }}">articleTypeDefault
-                avec un id de 15</a></li>
     </ul>
 </div>
 {% endblock %}
