@@ -26,6 +26,14 @@ class PublicController extends AbstractController
         // Nous allons envoyer une réponse de type texte en utilisant
         // la classe Response en utilisant la variable $id
         return new Response("<body><h1>Page de l'article dont l'id est $id</h1>
-        <a href='./'>Retour à l'accueil</a></body>");
+        <a href='../'>Retour à l'accueil</a></body>");
+    }
+    #[Route('/articleType/{id<\d+>}', name: 'public_article_type',methods: ['GET'])]
+    public function articleType(int $id): Response
+    {
+        // Nous allons envoyer une réponse de type texte en utilisant la classe Response en utilisant
+        // la variable $id
+        return new Response("<body><h1>Page de l'article Typée en int dont l'id est $id</h1>
+        <p>Ne fonctionne qu'avec une variable GET de type numérique !</p><a href='../../'>Retour à l'accueil</a></body>");
     }
 }

@@ -696,7 +696,7 @@ Nous allons créer une nouvelle méthode dans le contrôleur `PublicController.p
         // Nous allons envoyer une réponse de type texte en utilisant
         // la classe Response en utilisant la variable $id
         return new Response("<body><h1>Page de l'article dont l'id est $id</h1>
-        <a href='./'>Retour à l'accueil</a></body>");
+        <a href='../'>Retour à l'accueil</a></body>");
     }
 ```
 
@@ -719,6 +719,8 @@ https://127.0.0.1:8000/article/1
 Sans protections, nous pouvons passer n'importe quoi dans l'id ! :
 
 https://127.0.0.1:8000/article/Coucou-les-amis
+
+[V0.3.1](https://github.com/mikhawa/Symfony-6.4-LTS/commit/cbf91805dbeaa7ec73d6fa4cbeb61aa1f6cebabb)
 
 ---
 
@@ -747,7 +749,7 @@ Puis dans le fichier `templates/public/index.html.twig` :
 ```twig
 {# chemin vers la page de l'article en utilisant son nom  de route (public_article_type) 
 et en envoyant l'id 1 en paramètre protégé#}
-<li>Un <a href="{{ path('public_article_type', {'id': 1}) }}">article dont l'id vaut 1</a></li>
+<li>Un <a href="{{ path('public_article_type', {'id': 2}) }}">article dont l'id vaut 2</a> (numérique entier non signé)</li>
 ```
 
 On peut vérifier que la route ne fonctionne pas avec une variable de type `string` :
@@ -760,6 +762,7 @@ Pour debugger les routes, nous pouvons utiliser la commande suivante :
 php bin/console debug:router
 ```
 
+[V0.3.2]()
 
 ---
 

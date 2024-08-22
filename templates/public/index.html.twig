@@ -19,6 +19,9 @@
         # chemin vers la page de l'article en utilisant son nom de route (public_article) et en envoyant l'id 1
         en paramètre#}
         <li>Un <a href="{{ path('public_article', {'id': 1}) }}">article dont l'id vaut 1</a></li>
+        {# chemin vers la page de l'article en utilisant son nom  de route (public_article_type)
+et en envoyant l'id 1 en paramètre protégé#}
+        <li>Un <a href="{{ path('public_article_type', {'id': 2}) }}">article dont l'id vaut 2</a> (numérique entier non signé)</li>
     </ul>
 </div>
 {% endblock %}
