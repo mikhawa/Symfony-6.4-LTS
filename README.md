@@ -675,7 +675,7 @@ Voir le guide des bonnes pratiques :
 https://symfony.com/doc/current/best_practices.html#use-the-yaml-format-to-configure-your-own-services
 
 
-[V0.0.2](https://github.com/mikhawa/symfony-2023-05-10/commit/ff72c74f4996c9b931c27ecd3bc2f843fb7f2cf3#diff-dec2af5f7d9970f289445f4d0e64b7ef32010495a60d370ee293f82db366847f)
+[V0.3](https://github.com/mikhawa/Symfony-6.4-LTS/commit/8ca5c8996cc70cb17771647a1d4fb5593e5e2732)
 
 
 ---
@@ -696,7 +696,7 @@ Nous allons créer une nouvelle méthode dans le contrôleur `PublicController.p
         // Nous allons envoyer une réponse de type texte en utilisant
         // la classe Response en utilisant la variable $id
         return new Response("<body><h1>Page de l'article dont l'id est $id</h1>
-        <a href='./'>Retour à l'accueil</a></body>");
+        <a href='../'>Retour à l'accueil</a></body>");
     }
 ```
 
@@ -719,6 +719,8 @@ https://127.0.0.1:8000/article/1
 Sans protections, nous pouvons passer n'importe quoi dans l'id ! :
 
 https://127.0.0.1:8000/article/Coucou-les-amis
+
+[V0.3.1](https://github.com/mikhawa/Symfony-6.4-LTS/commit/cbf91805dbeaa7ec73d6fa4cbeb61aa1f6cebabb)
 
 ---
 
@@ -747,7 +749,7 @@ Puis dans le fichier `templates/public/index.html.twig` :
 ```twig
 {# chemin vers la page de l'article en utilisant son nom  de route (public_article_type) 
 et en envoyant l'id 1 en paramètre protégé#}
-<li>Un <a href="{{ path('public_article_type', {'id': 1}) }}">article dont l'id vaut 1</a></li>
+<li>Un <a href="{{ path('public_article_type', {'id': 2}) }}">article dont l'id vaut 2</a> (numérique entier non signé)</li>
 ```
 
 On peut vérifier que la route ne fonctionne pas avec une variable de type `string` :
@@ -760,6 +762,7 @@ Pour debugger les routes, nous pouvons utiliser la commande suivante :
 php bin/console debug:router
 ```
 
+[V0.3.2](https://github.com/mikhawa/Symfony-6.4-LTS/commit/a27cedd9db12f1201b396326fbc05ca5bf16f6ea)
 
 ---
 
@@ -797,7 +800,7 @@ sans envoyer de paramètre#}
         avec un id de 15</a></li>
 ```
 
-[V0.0.3](https://github.com/mikhawa/symfony-2023-05-10/commit/e000b4563d809657feeb43467ce91099464176b3#diff-b1b5b30007fdfcd4be14b1260eb4278fa1bdc57cc7cd6224ef521116360b99e2)
+[V0.3.3](https://github.com/mikhawa/Symfony-6.4-LTS/commit/a27cedd9db12f1201b396326fbc05ca5bf16f6ea)
 
 ---
 
