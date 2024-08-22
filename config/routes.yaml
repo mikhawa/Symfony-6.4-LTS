@@ -3,3 +3,7 @@ controllers:
         path: ../src/Controller/
         namespace: App\Controller
     type: attribute
+
+public_contact:
+    path: /contact
+    controller: App\Controller\PublicController::contact
