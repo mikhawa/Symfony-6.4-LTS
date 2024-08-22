@@ -816,7 +816,7 @@ Nous allons créer un fichier `.env.local` en copiant le fichier `.env` et en le
 cp .env .env.local
 ```
 
-Ou de manière plus simple en utilisant la commande suivante :
+Ou d'une autre manière en utilisant la commande suivante :
 
 ```bash
 composer dump-env dev
@@ -824,24 +824,22 @@ composer dump-env dev
 
 Ce qui créera un fichier `.env.local.php`, que nous ne garderons pas pour le moment. Cette commande est à utiliser pour la mise en production : `composer dump-env prod`.
 
-Nous allons modifier le fichier `.env.local` pour y mettre les informations de connexion à la base de données MariaDB, ici pas de danger car nous travaillons en local, mais en production il faudra faire attention à ne pas mettre les informations de connexion à la base de données dans un fichier qui sera versionné.
+Nous allons modifier le fichier `.env.local` pour y mettre les informations de connexion à la base de données MariaDB, ici pas de danger, car nous travaillons en local, mais en production, il faudra faire attention à ne pas mettre les informations de connexion à la base de données dans un fichier qui sera versionné.
+
+#### Liens vers le serveur de base de données
+
+Nous allons utiliser Mysql, mais vous pouvez utiliser PostgreSQL, SQLite, …
 
 ```bash
 # .env.local
 
 ###> doctrine/doctrine-bundle ###
- DATABASE_URL="mysql://root:@127.0.0.1:3307/sym_62?serverVersion=10.10.2-MariaDB&charset=utf8mb4"
+DATABASE_URL="mysql://root:@127.0.0.1:3306/sym_64?serverVersion=8.2.0-MariaDB&charset=utf8mb4"
 # DATABASE_URL="postgresql://app:!ChangeMe!@127.0.0.1:5432/app?serverVersion=15&charset=utf8"
 ###< doctrine/doctrine-bundle ###
 ```
 
-! Depuis la version 6.3 de Symfony, il est possible qu'il faille installer une librairie supplémentaire pour les annotations de doctrine :
 
-```bash
-composer require doctrine/annotations
-```
-
-Sinon un bug est possible.
 
 ---
 
@@ -876,7 +874,7 @@ Les tables seront importées sous forme d'entités avec annotations dans les fic
 Nous allons en faire la démonstration dans le tag [V0.1.1](https://github.com/mikhawa/symfony-2023-05-10/commit/5969a228f473ee7f6d0ecb90060415f4c2d4b418)
 en utilisant la DB `mvcprojets` que vous trouverez dans le dossier `datas` de ce projet.
 
-Pour le tester vous pouvez importer la base de données dans votre serveur MariaDB en utilisant le fichier contenu dans le dossier `datas` de ce projet:
+Pour le tester, vous pouvez importer la base de données dans votre serveur MariaDB en utilisant le fichier contenu dans le dossier `datas` de ce projet :
 
 https://raw.githubusercontent.com/mikhawa/symfony-2023-05-10/main/datas/mvcprojets.sql
 
