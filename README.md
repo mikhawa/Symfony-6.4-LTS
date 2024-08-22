@@ -675,7 +675,7 @@ Voir le guide des bonnes pratiques :
 https://symfony.com/doc/current/best_practices.html#use-the-yaml-format-to-configure-your-own-services
 
 
-[V0.0.2](https://github.com/mikhawa/symfony-2023-05-10/commit/ff72c74f4996c9b931c27ecd3bc2f843fb7f2cf3#diff-dec2af5f7d9970f289445f4d0e64b7ef32010495a60d370ee293f82db366847f)
+[V0.3](https://github.com/mikhawa/Symfony-6.4-LTS/commit/8ca5c8996cc70cb17771647a1d4fb5593e5e2732)
 
 
 ---
