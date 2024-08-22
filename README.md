@@ -12,6 +12,8 @@ https://endoflife.date/symfony
 
 ## Lien vers le site de démo
 
+(Ancienne version, à mettre à jour)
+
 https://sym6.cf2m.be/
 
 ---
@@ -216,7 +218,7 @@ Symfony convient mieux aux applications web complexes ou aux projets de dévelop
 
 Par exemple Symfony propose 4 ans de support pour les versions majeures, Laravel propose 6 mois de support pour les versions majeures.
 
-https://endoflife.date/laravel
+https://endoflife.date/symfony
 
 https://endoflife.date/laravel
 
@@ -225,6 +227,8 @@ Cependant, nous suggérons Laravel si vous souhaitez créer une application web 
 ### Prérequis
 
 #### Environnement de développement
+
+Pour la version `LTS` en 6.4, PHP 8.1 est nécessaire, mais suffisant. Il faut au moins PHP 8.2 pour Symfony 7.*
 
 - Windows 10 ou 11
 - WampServer 3.2.5 ou supérieur
@@ -363,7 +367,7 @@ Lors de l'écriture de ces lignes la version LTS de Symfony est la version 6.4.1
 Dans la console, nous allons écrire la commande suivante :
 
 ```bash
-symfony new symfony6 --webapp --version=lts
+symfony new symfony6.4 --webapp --version=lts
 ```
 
 Voici le lien de la documentation officielle de Symfony pour créer un nouveau projet :
@@ -465,6 +469,12 @@ Une manière plus "propre" de lancer le serveur en mode deamon (invisible) est l
 
 ```bash
 symfony server:start -d
+```
+
+Ou
+
+```bash
+symfony serve -d
 ```
 
 Et pour le fermer proprement :
