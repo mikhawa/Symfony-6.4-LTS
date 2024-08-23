@@ -1094,6 +1094,15 @@ Nous allons faire quelques modifications dans le fichier `src/Entity/Article.php
         )
     ]
     private ?\DateTimeInterface $ArticleDateUpdate = null;
+    
+    // pour que la valeur par défaut soit false
+    #[ORM\Column(
+        type: Types::BOOLEAN, 
+        options: ["default" => false]
+        )
+    ]
+    private ?bool $ArticleIsPublished = null;
+    
 
 ``` 
 

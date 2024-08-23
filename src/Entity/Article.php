@@ -45,7 +45,12 @@ class Article
     ]
     private ?\DateTimeInterface $ArticleDateUpdate = null;
 
-    #[ORM\Column]
+    // pour que la valeur par défaut soit false
+    #[ORM\Column(
+        type: Types::BOOLEAN,
+        options: ["default" => false]
+    )
+    ]
     private ?bool $ArticleIsPublished = null;
 
     /**
