@@ -1021,7 +1021,7 @@ Nous allons ensuite répondre aux questions suivantes :
 > > Commentaire
 > CommentaireTitle
 > > string
-> > 100
+> > 120
 > > nullable => no
 > CommentaireText
 > > string
@@ -1033,7 +1033,9 @@ Nous allons ensuite répondre aux questions suivantes :
 > > CommentaireManyToOneArticle
 > > ManyToOne
 > > Article
-> > nullable => no
+> > nullable => yes
+> >  Article so that you can access/update Commentaire objects from it
+> > yes => commentaires
 > > CommentaireIsPublished
 > > boolean
 > > nullable => no
@@ -1044,25 +1046,30 @@ Nous allons faire quelques modifications dans le fichier `src/Entity/Commentaire
 
 ```php
     // ...
-    // pour que l'id soit unsigned
+    // Pour que l'id soit unsigned
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column(options: ["unsigned" => true])]
     private ?int $id = null;
 
     // ...
-    // pour que la date actuelle soit insérée automatiquement
-    #[ORM\Column(type: Types::DATETIME_MUTABLE, nullable: true,options: ["default" => "CURRENT_TIMESTAMP"])]
+    // Pour que la date actuelle soit insérée automatiquement
+    #[ORM\Column(
+        type: Types::DATETIME_MUTABLE,
+        nullable: true,
+        options: ['default' => 'CURRENT_TIMESTAMP']
+        )
+    ]
     private ?\DateTimeInterface $CommentaireDateCreate = null;
 
-    // ...
-    // Pour que la relation soit bidirectionnelle,
-    // on peut ajouter une propriété targetEntity et inversedBy
-    #[ORM\ManyToOne(targetEntity: Article::class, inversedBy: 'Commentaires')]
-    private ?Article $CommentaireManyToOneArticle = null;
+
     
     // pour que la valeur par défaut soit false
-    #[ORM\Column(type: Types::BOOLEAN, options: ["default" => false])]
+    #[ORM\Column(
+    type: Types::BOOLEAN, 
+    options: ["default" => false]
+        )
+    ]
     private ?bool $CommentaireIsPublished = null;
 
 ```
@@ -1073,17 +1080,24 @@ Nous allons faire quelques modifications dans le fichier `src/Entity/Article.php
     // ...
     
     // pour que la date actuelle soit insérée automatiquement lors de la création
-    #[ORM\Column(type: Types::DATETIME_MUTABLE, nullable: true, 
-            options: ["default" => "CURRENT_TIMESTAMP"])]
-    private ?\DateTimeInterface $AritcleDateCreate = null;
+    #[ORM\Column(
+    type: Types::DATETIME_MUTABLE, 
+    nullable: true, 
+            options: ["default" => "CURRENT_TIMESTAMP"]
+            )
+    ]
+    private ?\DateTimeInterface $ArticleDateCreate = null;
 
-    // pour que la date actuelle soit insérée automatiquement lors de la mise à jour
-    #[ORM\Column(type: Types::DATETIME_MUTABLE, nullable: true, columnDefinition: "TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP",)]
-    private ?\DateTimeInterface $AgirticleDateUpdate = null;
+   // pour que la date actuelle soit insérée automatiquement lors de la mise à jour
+    #[ORM\Column(
+        columnDefinition: 'DATETIME DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP'
+        )
+    ]
+    private ?\DateTimeInterface $ArticleDateUpdate = null;
 
 ``` 
 
-[v0.2.3](https://github.com/mikhawa/symfony-2023-05-10/commit/06cb586e26196d37f0acd63621b2f8cc6934ddd8#diff-bfda95459173a4f13453f500a164b7f3afdc09bed8d039383e8d94fabcce2649)
+
 
 ---
 
