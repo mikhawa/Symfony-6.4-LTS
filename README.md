@@ -49,7 +49,6 @@ https://sym6.cf2m.be/
       - [Deuxième migration vers la DB](#deuxième-migration-vers-la-db)
     - [Création d'une entité avec une relation ManyToMany](#création-dune-entité-avec-une-relation-manytomany)
       - [Troisième migration vers la DB](#troisième-migration-vers-la-db)
-  - [Mise à jour de version mineure de Symfony](#mise-à-jour-de-version-mineure-de-symfony)
   - [Création d'un utilisateur](#création-dun-utilisateur)
     - [Modification de la table utilisateur](#modification-de-la-table-utilisateur)
     - [Lions la table utilisateur à la table article](#lions-la-table-utilisateur-à-la-table-article)
@@ -1154,7 +1153,7 @@ Nous allons ensuite répondre aux questions suivantes :
 > > nullable => no
 > > CategorieSlug
 > > string
-> > 160
+> > 165
 > > nullable => no
 > > CategorieDesc 
 > > string
@@ -1172,7 +1171,7 @@ Nous allons faire quelques modifications dans le fichier `src/Entity/Categorie.p
 
 ```php
     // ...
-    // pour que l'id soit unsigned
+    // Pour que l'id soit unsigned
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column(options: ["unsigned" => true])]
@@ -1191,13 +1190,13 @@ Retour au [Menu de navigation](#menu-de-navigation)
 
 #### Troisième migration vers la DB
 
-Ensuite on refait une migration :
+Ensuite, on refait une migration :
 
 ```bash
 php bin/console make:migration
 ```
 
-Puis on effectue la migration :
+Puis, on effectue la migration :
 
 ```bash
 php bin/console doctrine:migrations:migrate
@@ -1210,169 +1209,6 @@ Retour au [Menu de navigation](#menu-de-navigation)
 
 ---
 
-### Mise à jour de version mineure de Symfony
-
-Pour des raisons de sécurité, il est important de mettre à jour régulièrement les versions des packages utilisés dans notre projet:
-
-Aujourd'hui nous sommes le 2023-06-13, et il ne reste qu'un mois de mises à jour de sécurité pour la version 6.2 de Symfony :
-
-https://endoflife.date/symfony
-
-
-Nous allons mettre à jour la version de Symfony de **6.2.11** à **6.3.0** :
-
-Il vaut mieux commencer par créer une branche git pour pouvoir retourner sur la version précédente si besoin !
-
-Dans le fichier `composer.json` :
-
-```json
-    "require": {
-        "php": ">=8.1",
-        "ext-ctype": "*",
-        "ext-iconv": "*",
-        "doctrine/annotations": "^2.0",
-        "doctrine/doctrine-bundle": "^2.9",
-        "doctrine/doctrine-migrations-bundle": "^3.2",
-        "doctrine/orm": "^2.15",
-        "phpdocumentor/reflection-docblock": "^5.3",
-        "phpstan/phpdoc-parser": "^1.20",
-        "sensio/framework-extra-bundle": "^6.1",
-        "symfony/asset": "6.2.*",
-        "symfony/console": "6.2.*",
-        "symfony/doctrine-messenger": "6.2.*",
-        "symfony/dotenv": "6.2.*",
-        "symfony/expression-language": "6.2.*",
-        "symfony/flex": "^2",
-        "symfony/form": "6.2.*",
-        "symfony/framework-bundle": "6.2.*",
-        "symfony/http-client": "6.2.*",
-        "symfony/intl": "6.2.*",
-        "symfony/mailer": "6.2.*",
-        "symfony/mime": "6.2.*",
-        "symfony/monolog-bundle": "^3.0",
-        "symfony/notifier": "6.2.*",
-        "symfony/process": "6.2.*",
-        "symfony/property-access": "6.2.*",
-        "symfony/property-info": "6.2.*",
-        "symfony/runtime": "6.2.*",
-        "symfony/security-bundle": "6.2.*",
-        "symfony/serializer": "6.2.*",
-        "symfony/string": "6.2.*",
-        "symfony/translation": "6.2.*",
-        "symfony/twig-bundle": "6.2.*",
-        "symfony/validator": "6.2.*",
-        "symfony/web-link": "6.2.*",
-        "symfony/yaml": "6.2.*",  
- 
-...
-
-"extra": {
-    "symfony": {
-        "allow-contrib": false,
-        "require": "6.2.*"
-        }
-    },
-    "require-dev": {
-        "phpunit/phpunit": "^9.5",
-        "symfony/browser-kit": "6.2.*",
-        "symfony/css-selector": "6.2.*",
-        "symfony/debug-bundle": "6.2.*",
-        "symfony/maker-bundle": "^1.0",
-        "symfony/phpunit-bridge": "^6.2",
-        "symfony/stopwatch": "6.2.*",
-        "symfony/web-profiler-bundle": "6.2.*"
-}
-```
-
-Par les lignes suivantes :
-
-
-```json
-"require": {
-        "php": ">=8.1",
-        "ext-ctype": "*",
-        "ext-iconv": "*",
-        "doctrine/annotations": "^2.0",
-        "doctrine/doctrine-bundle": "^2.9",
-        "doctrine/doctrine-migrations-bundle": "^3.2",
-        "doctrine/orm": "^2.15",
-        "phpdocumentor/reflection-docblock": "^5.3",
-        "phpstan/phpdoc-parser": "^1.20",
-        "sensio/framework-extra-bundle": "^6.1",
-        "symfony/asset": "6.3.*",
-        "symfony/console": "6.3.*",
-        "symfony/doctrine-messenger": "6.3.*",
-        "symfony/dotenv": "6.3.*",
-        "symfony/expression-language": "6.3.*",
-        "symfony/flex": "^2",
-        "symfony/form": "6.3.*",
-        "symfony/framework-bundle": "6.3.*",
-        "symfony/http-client": "6.3.*",
-        "symfony/intl": "6.3.*",
-        "symfony/mailer": "6.3.*",
-        "symfony/mime": "6.3.*",
-        "symfony/monolog-bundle": "^3.0",
-        "symfony/notifier": "6.3.*",
-        "symfony/process": "6.3.*",
-        "symfony/property-access": "6.3.*",
-        "symfony/property-info": "6.3.*",
-        "symfony/runtime": "6.3.*",
-        "symfony/security-bundle": "6.3.*",
-        "symfony/serializer": "6.3.*",
-        "symfony/string": "6.3.*",
-        "symfony/translation": "6.3.*",
-        "symfony/twig-bundle": "6.3.*",
-        "symfony/validator": "6.3.*",
-        "symfony/web-link": "6.3.*",
-        "symfony/yaml": "6.3.*",
-        "twig/extra-bundle": "^2.12|^3.0",
-        "twig/twig": "^2.12|^3.0"
-    },
-
-... et
-
-"extra": {
-        "symfony": {
-            "allow-contrib": false,
-            "require": "6.3.*"
-        }
-    },
-    "require-dev": {
-        "phpunit/phpunit": "^9.5",
-        "symfony/browser-kit": "6.3.*",
-        "symfony/css-selector": "6.3.*",
-        "symfony/debug-bundle": "6.3.*",
-        "symfony/maker-bundle": "^1.0",
-        "symfony/phpunit-bridge": "^6.3",
-        "symfony/stopwatch": "6.3.*",
-        "symfony/web-profiler-bundle": "6.3.*"
-    }
-```
-
-Puis dans le terminal :
-
-```bash
-composer update "symfony/*"
-```
-
-
-En cas de soucis, voir cette page :
-
-https://symfony.com/doc/current/setup/upgrade_major.html#2-update-to-the-new-major-version-via-composer
-
-Pour être certain de la compatibilité des dépendances, il est possible de lancer la commande suivante :
-
-```bash
-composer recipes:install --force -v
-```
-
-[v0.3.0](https://github.com/mikhawa/symfony-2023-05-10/commit/5299754210d4add384bad41ee06f0e1f0b4bb7c3#diff-d2ab9925cad7eac58e0ff4cc0d251a937ecf49e4b6bf57f8b95aab76648a9d34)
-
----
-
-Retour au [Menu de navigation](#menu-de-navigation)
-
----
 
 ### Création d'un utilisateur
 
