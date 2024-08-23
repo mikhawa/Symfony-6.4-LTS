@@ -1128,7 +1128,7 @@ Nous allons maintenant effectuer la migration vers la DB :
 php bin/console doctrine:migrations:migrate
 ```
 
-
+[V0.4.3](https://github.com/mikhawa/Symfony-6.4-LTS/releases/tag/v0.4.3)
 
 ---
 
