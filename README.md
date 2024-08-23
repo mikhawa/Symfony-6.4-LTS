@@ -861,7 +861,6 @@ Retour au [Menu de navigation](#menu-de-navigation)
 ---
 
 
-
 ### Remise à zéro de Symfony
 
 Nous allons remettre à zéro Symfony pour pouvoir recommencer à zéro.
@@ -870,6 +869,7 @@ Seront supprimés :
 - src/Controller/PublicController.php
 - templates/public/index.html.twig
 
+[V0.4.1](https://github.com/mikhawa/Symfony-6.4-LTS/releases/tag/v0.4.1)
 
 ---
 
@@ -887,7 +887,7 @@ Nous allons tout d'abord créer à nouveau un contrôleur pour pouvoir tester no
 php bin/console make:controller BlogController
 ```
 
-puis modifier le fichier `src/Controller/BlogController.php` :
+Puis modifier le fichier `src/Controller/BlogController.php` :
 
 ```php
 #[Route('/', name: 'app_blog')]
