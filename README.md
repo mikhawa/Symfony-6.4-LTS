@@ -820,11 +820,11 @@ composer dump-env dev
 
 Ce qui créera un fichier `.env.local.php`, que nous ne garderons pas pour le moment. Cette commande est à utiliser pour la mise en production : `composer dump-env prod`.
 
-Nous allons modifier le fichier `.env.local` pour y mettre les informations de connexion à la base de données MariaDB, ici pas de danger, car nous travaillons en local, mais en production, il faudra faire attention à ne pas mettre les informations de connexion à la base de données dans un fichier qui sera versionné.
+Nous allons modifier le fichier `.env.local` pour y mettre les informations de connexion à la base de données `MySQL`, ici pas de danger, car nous travaillons en local, mais en production, il faudra faire attention à ne pas mettre les informations de connexion à la base de données dans un fichier qui sera versionné.
 
 #### Liens vers le serveur de base de données
 
-Nous allons utiliser Mysql, mais vous pouvez utiliser PostgreSQL, SQLite, …
+Nous allons utiliser Mysql, mais vous pouvez utiliser PostgreSQL, MariaDB, SQLite, …
 
 ```bash
 # .env.local
@@ -865,7 +865,14 @@ Retour au [Menu de navigation](#menu-de-navigation)
 
 Nous allons remettre à zéro Symfony pour pouvoir recommencer à zéro.
 
-```bash
+Seront supprimés :
+- src/Controller/PublicController.php
+- templates/public/index.html.twig
+
+
+
+
+### Création de BlogController
 
 
 Nous allons tout d'abord créer à nouveau un contrôleur pour pouvoir tester nos entités.
