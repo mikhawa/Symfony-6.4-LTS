@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\ArticleRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 
@@ -14,7 +16,8 @@ class Article
     #[ORM\GeneratedValue]
     #[ORM\Column(
         type: Types::INTEGER,
-        options: ['unsigned' => true])]
+        options: ['unsigned' => true])
+    ]
     private ?int $id = null;
 
     #[ORM\Column(length: 160)]
@@ -26,14 +29,35 @@ class Article
     #[ORM\Column(type: Types::TEXT)]
     private ?string $ArticleContent = null;
 
-    #[ORM\Column(type: Types::DATE_MUTABLE, nullable: true)]
+    // pour que la date actuelle soit insérée automatiquement lors de la création
+    #[ORM\Column(
+        type: Types::DATETIME_MUTABLE,
+        nullable: true,
+        options: ["default" => "CURRENT_TIMESTAMP"]
+    )
+    ]
     private ?\DateTimeInterface $ArticleDateCreate = null;
 
-    #[ORM\Column(type: Types::DATETIME_MUTABLE, nullable: true)]
+    // pour que la date actuelle soit insérée automatiquement lors de la mise à jour
+    #[ORM\Column(
+        columnDefinition: 'DATETIME DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP'
+        )
+    ]
     private ?\DateTimeInterface $ArticleDateUpdate = null;
 
     #[ORM\Column]
     private ?bool $ArticleIsPublished = null;
+
+    /**
+     * @var Collection<int, Commentaire>
+     */
+    #[ORM\OneToMany(targetEntity: Commentaire::class, mappedBy: 'CommentaireManyToOneArticle')]
+    private Collection $commentaires;
+
+    public function __construct()
+    {
+        $this->commentaires = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -108,6 +132,36 @@ class Article
     public function setArticleIsPublished(bool $ArticleIsPublished): static
     {
         $this->ArticleIsPublished = $ArticleIsPublished;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Commentaire>
+     */
+    public function getCommentaires(): Collection
+    {
+        return $this->commentaires;
+    }
+
+    public function addCommentaire(Commentaire $commentaire): static
+    {
+        if (!$this->commentaires->contains($commentaire)) {
+            $this->commentaires->add($commentaire);
+            $commentaire->setCommentaireManyToOneArticle($this);
+        }
+
+        return $this;
+    }
+
+    public function removeCommentaire(Commentaire $commentaire): static
+    {
+        if ($this->commentaires->removeElement($commentaire)) {
+            // set the owning side to null (unless already changed)
+            if ($commentaire->getCommentaireManyToOneArticle() === $this) {
+                $commentaire->setCommentaireManyToOneArticle(null);
+            }
+        }
 
         return $this;
     }
