@@ -998,6 +998,7 @@ Attention, si vous avez des données dans la DB, elles seront perdues, il faudra
 Deux autres tables ont été créées automatiquement : `messenger_messages` et `doctrine_migration_versions` pour gérer les messages (gestion asynchrone que nous verrons plus tard) et les migrations.
 
 
+[V0.4.2](https://github.com/mikhawa/Symfony-6.4-LTS/commit/61745abf8ec7e7fe4f97576ac645b9cd19320dd1)
 
 ---
 
