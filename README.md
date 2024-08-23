@@ -42,6 +42,7 @@ https://sym6.cf2m.be/
   - [Création du fichier .env.local](#création-du-fichier-envlocal)
     - [Création de la base de données](#création-de-la-base-de-données)
     - [Remise à zéro de Symfony](#remise-à-zéro-de-symfony)
+    - [Création de BlogController](#création-de-blogcontroller)
     - [Création d'une entité](#création-dune-entité)
       - [Première migration vers la DB](#première-migration-vers-la-db)
     - [Création d'une entité avec une relation ManyToOne](#création-dune-entité-avec-une-relation-manytoone)
@@ -870,6 +871,11 @@ Seront supprimés :
 - templates/public/index.html.twig
 
 
+---
+
+Retour au [Menu de navigation](#menu-de-navigation)
+
+---
 
 
 ### Création de BlogController
