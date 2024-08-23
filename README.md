@@ -899,7 +899,6 @@ Puis modifier le fichier `src/Controller/BlogController.php` :
     }
 ```
 
-[v0.2.1](https://github.com/mikhawa/symfony-2023-05-10/commit/393ea1c398bbb855f4407194ce9dda238611a46e#diff-f8af05fe3ed91657a96bece8df2f0639855fdbe18e5287e3186e088e66664cd0)
 
 ---
 
@@ -923,13 +922,16 @@ Nous allons ensuite répondre aux questions suivantes :
 ```bash
 > Class name of the entity to create or update (e.g. BravePuppy):
 > > Article
+> Add the ability to broadcast entity updates 
+ using Symfony UX Turbo? (yes/no) [no]:
+ > no
 > ArticleTitle
 > > string
 > > 160
 > > nullable => no
 > ArticleSlug
 > > string
-> > 160
+> > 165
 > > nullable => no
 > ArticleContent
 > > text
@@ -943,6 +945,10 @@ Nous allons ensuite répondre aux questions suivantes :
 > ArticleIsPublished
 > > boolean
 > > nullable => no
+
+Next: When you are ready, create a migration 
+with php bin/console make:migration
+
 ```
 
 L'enregistrement de l'entité se fait automatiquement dans le fichier `src/Entity/Article.php`. Un fichier `src/Repository/ArticleRepository.php` contenant la gestion de la table `article`est aussi créé.
@@ -953,7 +959,7 @@ dans le fichier `src/Entity/Article.php` nous allons modifier la ligne suivante 
 
 ```php
     // ...
-    // pour que l'id soit unsigned
+    // Pour que l'id soit unsigned
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column(options: ["unsigned" => true])]
