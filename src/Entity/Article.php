@@ -9,9 +9,12 @@ use Doctrine\ORM\Mapping as ORM;
 #[ORM\Entity(repositoryClass: ArticleRepository::class)]
 class Article
 {
+    // Pour que l'id soit unsigned, il faut ajouter l'option "unsigned: true"
     #[ORM\Id]
     #[ORM\GeneratedValue]
-    #[ORM\Column]
+    #[ORM\Column(
+        type: Types::INTEGER,
+        options: ['unsigned' => true])]
     private ?int $id = null;
 
     #[ORM\Column(length: 160)]

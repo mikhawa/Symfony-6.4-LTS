@@ -962,7 +962,10 @@ dans le fichier `src/Entity/Article.php` nous allons modifier la ligne suivante 
     // Pour que l'id soit unsigned
     #[ORM\Id]
     #[ORM\GeneratedValue]
-    #[ORM\Column(options: ["unsigned" => true])]
+    #[ORM\Column(
+        type: Types::INTEGER,
+        options: ['unsigned' => true])
+    ]
     private ?int $id = null;
 ```
 
