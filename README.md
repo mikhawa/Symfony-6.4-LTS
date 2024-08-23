@@ -870,21 +870,21 @@ Si la base de données existe déjà et que des tables y sont présentes, nous p
 
 Les tables seront importées sous forme d'entités avec annotations dans les fichiers `src/Entity` de notre projet.
 
-Nous allons en faire la démonstration dans le tag [V0.1.1](https://github.com/mikhawa/symfony-2023-05-10/commit/5969a228f473ee7f6d0ecb90060415f4c2d4b418)
-en utilisant la DB `mvcprojets` que vous trouverez dans le dossier `datas` de ce projet.
+Nous allons en faire la démonstration dans le tag `v0.5` en utilisant la DB `mvcprojets.sql` que vous trouverez dans le dossier `datas` de ce projet.
 
-Pour le tester, vous pouvez importer la base de données dans votre serveur MariaDB en utilisant le fichier contenu dans le dossier `datas` de ce projet :
+Pour le tester, vous pouvez importer la base de données dans votre serveur `MariaDB` en utilisant le fichier contenu dans le dossier `datas` de ce projet :
 
-https://raw.githubusercontent.com/mikhawa/symfony-2023-05-10/main/datas/mvcprojets.sql
+https://github.com/mikhawa/Symfony-6.4-LTS/blob/main/OurDatas/mvcprojets.sql
 
 
-Remplacez les informations de connexion à la base de données dans le fichier `.env.local` par les vôtres :
+Remplacez les informations de connexion à la base de données dans le fichier `.env.local` par le chemin vers cette base de données :
 
 ```bash
 # .env.local
 
 ###> doctrine/doctrine-bundle ###
- DATABASE_URL="mysql://root:@127.0.0.1:3307/mvcprojets?serverVersion=10.10.2-MariaDB&charset=utf8mb4"
+# DATABASE_URL="mysql://root:@127.0.0.1:3306/sym_64?serverVersion=8.2.0&charset=utf8mb4"
+DATABASE_URL="mysql://root:@127.0.0.1:3307/mvcprojets?serverVersion=11.2.2-MariaDB&charset=utf8mb4"
 ###< doctrine/doctrine-bundle ###
 ```
 
