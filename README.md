@@ -1162,11 +1162,12 @@ Nous allons ensuite répondre aux questions suivantes :
 > > string
 > > 500
 > > nullable => yes
-> > Categorie_m2m_Article
+> > CategorieHasArticle
 > > ManyToMany
 > > Article
 > > acces into Article
 > > yes
+> > categories
 
 ```
 
@@ -1177,13 +1178,22 @@ Nous allons faire quelques modifications dans le fichier `src/Entity/Categorie.p
     // Pour que l'id soit unsigned
     #[ORM\Id]
     #[ORM\GeneratedValue]
-    #[ORM\Column(options: ["unsigned" => true])]
+    #[ORM\Column(
+        type: Types::INTEGER,
+        options: ['unsigned' => true])
+    ]
     private ?int $id = null;
 
     // ...
 ```
 
-[v0.2.4](https://github.com/mikhawa/symfony-2023-05-10/commit/2596db5b66a0524d26d5ac6e7955ba288f6c8a3e#diff-65fec058e1346b760cbe5d0bfc6867ef3fca25727dc922e5137cc7ab712f285e)
+```bash
+ updated: src/Entity/Categorie.php
+ updated: src/Entity/Article.php
+```
+
+
+[V0.4.4](https://github.com/mikhawa/Symfony-6.4-LTS/releases/tag/v0.4.3)
 
 ---
 

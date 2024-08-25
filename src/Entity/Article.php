@@ -59,9 +59,16 @@ class Article
     #[ORM\OneToMany(targetEntity: Commentaire::class, mappedBy: 'CommentaireManyToOneArticle')]
     private Collection $commentaires;
 
+    /**
+     * @var Collection<int, Categorie>
+     */
+    #[ORM\ManyToMany(targetEntity: Categorie::class, mappedBy: 'CategorieHasArticle')]
+    private Collection $categories;
+
     public function __construct()
     {
         $this->commentaires = new ArrayCollection();
+        $this->categories = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -166,6 +173,33 @@ class Article
             if ($commentaire->getCommentaireManyToOneArticle() === $this) {
                 $commentaire->setCommentaireManyToOneArticle(null);
             }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Categorie>
+     */
+    public function getCategories(): Collection
+    {
+        return $this->categories;
+    }
+
+    public function addCategory(Categorie $category): static
+    {
+        if (!$this->categories->contains($category)) {
+            $this->categories->add($category);
+            $category->addCategorieHasArticle($this);
+        }
+
+        return $this;
+    }
+
+    public function removeCategory(Categorie $category): static
+    {
+        if ($this->categories->removeElement($category)) {
+            $category->removeCategorieHasArticle($this);
         }
 
         return $this;
