@@ -398,6 +398,9 @@ php bin/console
 symfony console
 ```
 
+- Le dossier `assets` contient les fichiers statiques de l'application, tels que les fichiers CSS, JavaScript, les images, etc. Ils seront compilés et minifiés par `Webpack Encore` (en Javascript avec `node.js`et `Yarn`) ou par `asset-mapper` (recommandé et installé depuis Symfony 6.4) qui utilise PHP pour effectuer la compilation et la minification des fichiers statiques.
+
+
 - Le dossier `config` contient les fichiers de configuration de l'application, tels que les fichiers de configuration de la base de données, les fichiers de configuration de l'environnement, etc.
 
 
