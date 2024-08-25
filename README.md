@@ -1193,7 +1193,8 @@ Nous allons faire quelques modifications dans le fichier `src/Entity/Categorie.p
 ```
 
 
-[V0.4.4](https://github.com/mikhawa/Symfony-6.4-LTS/releases/tag/v0.4.3)
+[V0.4.4](https://github.com/mikhawa/Symfony-6.4-LTS/commit/a25123e96c694506cea262401a321874284883fb#diff-6c398b4c27155c10ce5fcca09e4354392a097b432db26069e5135f8f64398029)
+
 
 ---
 
