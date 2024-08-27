@@ -1250,6 +1250,12 @@ Fichiers créés :
  created: src/Repository/UtilisateurRepository.php
  updated: src/Entity/Utilisateur.php
  updated: config/packages/security.yaml
+ 
+ Next Steps:
+   - Review your new App\Entity\Utilisateur class.
+   - Use make:entity to add more fields to your Utilisateur entity and then run make:migration.
+   - Create a way to authenticate! See https://symfony.com/doc/current/security.html
+
 ```
 
 [v0.3.1](https://github.com/mikhawa/symfony-2023-05-10/commit/7ce664d0400cf9c4464b585eab8ea65c42de57f4#diff-7930a7aa0c6617e26bc6ac5b6c0a759e0d114b3dbcf69e5861c63c3c9b3e98a2)
