@@ -1900,7 +1900,7 @@ https://127.0.0.1:8000/
 
 Maintenant que nous voyons que c'est fonctionnel, nous allons créer un template de base pour notre application.
 
-[v0.5]()
+[v0.5](https://github.com/mikhawa/Symfony-6.4-LTS/commit/3ac1e3caa456608587728fa74ab43c2ad3f7c78a#diff-f8af05fe3ed91657a96bece8df2f0639855fdbe18e5287e3186e088e66664cd0)
 
 ---
 
@@ -1908,6 +1908,7 @@ Retour au [Menu de navigation](#menu-de-navigation)
 
 ---
 
+# HERE
 
 ### Twig : Création d'un template de base
 
