@@ -1551,6 +1551,8 @@ php bin/console doctrine:fixtures:load
 Nous avons donc un utilisateur dans la base de données ! :)
 
 
+[v0.4.8]()
+
 ---
 
 Retour au [Menu de navigation](#menu-de-navigation)
@@ -1577,6 +1579,12 @@ https://packagist.org/packages/cocur/slugify
 
 ```bash
 composer require cocur/slugify
+```
+
+On peut le rajouter dans `config/bundles.php`
+
+```php
+Cocur\Slugify\Bridge\Symfony\CocurSlugifyBundle::class => ['all' => true],
 ```
 
 Nous pouvons commencer par `Utilisateur` puis `Article` qui est lié :
