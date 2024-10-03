@@ -1686,7 +1686,7 @@ php bin/console doctrine:fixtures:load
 !!! Il faut utiliser `doctrine:fixtures:load --append` pour ne pas perdre les données déjà présentes dans la base de données.
 
 
-[v0.5.0]()
+[v0.4.9](https://github.com/mikhawa/Symfony-6.4-LTS/commit/dca9af93c306fc2058b4aeb383d64ea6ffab44c5#diff-5d12fa212ca0735a3554a8614bee32a0e5e687cd0ab820c3af8c7b21883adcdd)
 
 ---
 
