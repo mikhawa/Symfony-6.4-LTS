@@ -1571,7 +1571,9 @@ https://packagist.org/packages/fakerphp/faker
 composer require fakerphp/faker
 ```
 
-Esuite une bibliothèque pour slugifier les données :
+Ensuite une bibliothèque pour slugifier les données :
+
+https://packagist.org/packages/cocur/slugify
 
 ```bash
 composer require cocur/slugify
