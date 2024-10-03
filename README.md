@@ -1465,6 +1465,8 @@ php bin/console make:migration
 php bin/console doctrine:migrations:migrate
 ```
 
+Database avant le remplissage :
+
 [v0.4.7](https://github.com/mikhawa/Symfony-6.4-LTS/releases/tag/v0.4.7)
 
 ---
