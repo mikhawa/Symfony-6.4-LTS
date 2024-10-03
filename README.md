@@ -1485,6 +1485,10 @@ Nous allons charger le bundle `doctrine/doctrine-fixtures-bundle` :
 composer require orm-fixtures --dev
 ```
 
+Documentation :
+
+https://symfony.com/bundles/DoctrineFixturesBundle/current/index.html#installation
+
 ---
 
 Retour au [Menu de navigation](#menu-de-navigation)
@@ -1551,7 +1555,7 @@ php bin/console doctrine:fixtures:load
 Nous avons donc un utilisateur dans la base de données ! :)
 
 
-[v0.4.8]()
+[v0.4.8](https://github.com/mikhawa/Symfony-6.4-LTS/commit/ba5164bb6cd609512f93d5b3b07ece0f8e52aadf#diff-95c4003977cca1f8472ede2b9816095727f735d46c3f5467b42126ee72d35825)
 
 ---
 
@@ -1561,7 +1565,13 @@ Retour au [Menu de navigation](#menu-de-navigation)
 
 #### Création des fixtures pour les utilisateurs ET les articles
 
-Pour éviter de devoir définir l'ordre de chargement des fixtures, nous allons créer une fixture pour toutes les tables :
+Pour éviter de devoir définir l'ordre de chargement des fixtures, nous allons supprimer les 2 fichiers se trouvant dans `src/DataFixtures`, nous allons créer un fichier de fixture pour toutes les tables :
+
+```bash
+php bin/console make:fixtures AllFixtures
+```
+
+que l'on trouvera dans
 
 `src/DataFixtures/AllFixtures.php`
 
@@ -1572,6 +1582,10 @@ https://packagist.org/packages/fakerphp/faker
 ```bash
 composer require fakerphp/faker
 ```
+
+Documentation :
+
+https://fakerphp.org/
 
 Ensuite une bibliothèque pour slugifier les données :
 
@@ -1587,7 +1601,7 @@ On peut le rajouter dans `config/bundles.php`
 Cocur\Slugify\Bridge\Symfony\CocurSlugifyBundle::class => ['all' => true],
 ```
 
-Nous pouvons commencer par `Utilisateur` puis `Article` qui est lié :
+Nous pouvons commencer par `Utilisateur`, puis `Article` qui est lié :
 
 ```php
 <?php
@@ -1602,8 +1616,8 @@ use App\Entity\Utilisateur;
 use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 # 3. Importer l'entité Article
 use App\Entity\Article;
-# 4. Importer le générateur de texte en Lorem Ipsum
-use joshtronic\LoremIpsum;
+# 4. Importer le générateur de texte Faker
+use Faker\Factory;
 # 5. Importer le slugger
 use Cocur\Slugify\Slugify;
 
@@ -1618,6 +1632,8 @@ class AllFixtures extends Fixture
     public function load(ObjectManager $manager): void
     {
         // création de 10 utilisateurs
+        // dont on peut facilement récupérer la liste pour les articles
+        // et qu'on pourra deviner le mot de passe pour une connexion facile
         for($i=0;$i<10;$i++) {
             $user = new Utilisateur();
             $user->setName('Dupont' . $i);
@@ -1631,17 +1647,17 @@ class AllFixtures extends Fixture
             // on garde la requête de persistance pour la fin
             $manager->persist($user);
         }
-        // instanciation du générateur de Lorem Ipsum
-        $lipsum = new LoremIpsum();
+        // instanciation du générateur de Faker en français
+        $faker = Factory::create('fr_FR');
         // instanciation du slugger
         $slugify = new Slugify();
 
         // création de 30 articles
         for($i=0;$i<30;$i++) {
             $article = new Article();
-            $title = $lipsum->words(5);
+            $title = $faker->sentence(5,true);
             $article->setArticleTitle($title);
-            $article->setArticleContent($lipsum->paragraphs(3));
+            $article->setArticleContent($faker->paragraphs(3,true));
             $article->setArticleSlug($slugify->slugify($title));
             $article->setArticleDateCreate(new \DateTime());
             $article->setArticleIsPublished(true);
@@ -1661,17 +1677,16 @@ class AllFixtures extends Fixture
     
 ```
 
-Ensuite nous vérifions si cela fonctionne :
+Ensuite, nous vérifions si cela fonctionne :
 
 ```bash
 php bin/console doctrine:fixtures:load
 ```
 
-le fichier .sql :
+!!! Il faut utiliser `doctrine:fixtures:load --append` pour ne pas perdre les données déjà présentes dans la base de données.
 
-https://raw.githubusercontent.com/mikhawa/symfony-2023-05-10/main/datas/sym_64_2023-06-15.sql
 
-[v0.3.6](https://github.com/mikhawa/symfony-2023-05-10/commit/e0be37065939539ebd86ae3de58b5aab12c8f476#diff-5d12fa212ca0735a3554a8614bee32a0e5e687cd0ab820c3af8c7b21883adcdd)
+[v0.5.0]()
 
 ---
 
