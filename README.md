@@ -1563,10 +1563,12 @@ Pour éviter de devoir définir l'ordre de chargement des fixtures, nous allons 
 
 `src/DataFixtures/AllFixtures.php`
 
-Nous allons également installer une bibliothèque pour générer des données aléatoires en `Lorem Ipsum`:
+Nous allons également installer une bibliothèque pour générer des données aléatoires :
+
+https://packagist.org/packages/fakerphp/faker
 
 ```bash
-composer require joshtronic/php-loremipsum
+composer require fakerphp/faker
 ```
 
 Esuite une bibliothèque pour slugifier les données :
