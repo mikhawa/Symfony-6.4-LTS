@@ -59,6 +59,7 @@ https://sym6.cf2m.be/
     - [Création des fixtures pour les autres tables](#création-des-fixtures-pour-les-autres-tables)
   - [Modification de la page d'accueil](#modification-de-la-page-daccueil)
     - [Modification du contrôleur pour la page d'accueil](#modification-du-contrôleur-pour-la-page-daccueil)
+  - [Utilisation par défaut de AssetMapper](#utilisation-par-défaut-de-assetmapper)
   - [Twig : Création d'un template de base](#twig--création-dun-template-de-base)
     - [Modification du fichier `templates/base.html.twig`](#modification-du-fichier-templatesbasehtmltwig)
     - [Installation de Webpack Encore](#installation-de-webpack-encore)
@@ -1908,6 +1909,8 @@ Retour au [Menu de navigation](#menu-de-navigation)
 
 ---
 
+### Utilisation par défaut de AssetMapper
+
 # HERE
 
 ### Twig : Création d'un template de base
@@ -1919,6 +1922,8 @@ La documentation officielle de `Twig` : https://twig.symfony.com
 Ce moteur de template est déjà installé dans notre projet. Il est utilisé par défaut par `Symfony`.
 
 Il utilise une syntaxe orientée objet et a un système de cache pour optimiser les performances.
+
+
 
 #### Modification du fichier `templates/base.html.twig`
 
