@@ -59,14 +59,17 @@ https://sym6.cf2m.be/
     - [Création des fixtures pour les autres tables](#création-des-fixtures-pour-les-autres-tables)
   - [Modification de la page d'accueil](#modification-de-la-page-daccueil)
     - [Modification du contrôleur pour la page d'accueil](#modification-du-contrôleur-pour-la-page-daccueil)
-  - [Utilisation par défaut de AssetMapper](#utilisation-par-défaut-de-assetmapper)
   - [Twig : Création d'un template de base](#twig--création-dun-template-de-base)
+  - [Choix du template](#choix-du-template)
+  - [Utilisation par défaut de AssetMapper](#utilisation-par-défaut-de-assetmapper)
+  - [Utilisation de Webpack Encore](#utilisation-de-webpack-encore)
+  - [Utilisation des assets de base](#utilisation-des-assets-de-base)
     - [Modification du fichier `templates/base.html.twig`](#modification-du-fichier-templatesbasehtmltwig)
     - [Installation de Webpack Encore](#installation-de-webpack-encore)
     - [Installation de Yarn](#installation-de-yarn)
     - [Création des fichiers `CSS` et `JS` via `Webpack Encore`](#création-des-fichiers-css-et-js-via-webpack-encore)
     - [Installation de Bootstrap](#installation-de-bootstrap)
-  - [Choix du template](#choix-du-template)
+
     - [Modification de base.html.twig](#modification-de-basehtmltwig)
     - [Modification de template.html.twig](#modification-de-templatehtmltwig)
     - [Modification de la page d'accueil](#modification-de-la-page-daccueil-1)
@@ -1909,16 +1912,6 @@ Retour au [Menu de navigation](#menu-de-navigation)
 
 ---
 
-### Utilisation par défaut de AssetMapper
-
-Depuis cette version LTS de Symfony, le bundle `AssetMapper` est utilisé par défaut pour gérer les fichiers `CSS` et `JS` de notre projet.
-
-Vous pouvez consulter la documentation officielle ici :
-
-https://symfony.com/doc/current/frontend.html#frontend-asset-mapper
-
-# HERE
-
 ### Twig : Création d'un template de base
 
 Nous allons utiliser un moteur de template pour générer les vies de notre blog : `Twig`.
@@ -1928,6 +1921,47 @@ La documentation officielle de `Twig` : https://twig.symfony.com
 Ce moteur de template est déjà installé dans notre projet. Il est utilisé par défaut par `Symfony`.
 
 Il utilise une syntaxe orientée objet et a un système de cache pour optimiser les performances.
+
+---
+
+Retour au [Menu de navigation](#menu-de-navigation)
+
+---
+
+### Choix du template
+
+Nous allons utiliser le template `bootstrap Business frontpage` pour notre projet :
+
+https://startbootstrap.com/template/business-frontpage
+
+Nous pouvons le dézipper dans le dossier `datas` et nous allons le modifier pour l'adapter à notre projet.
+
+
+
+---
+
+Retour au [Menu de navigation](#menu-de-navigation)
+
+---
+
+### Utilisation par défaut de AssetMapper
+
+Depuis cette version LTS de Symfony, le bundle `AssetMapper` est utilisé par défaut pour gérer les fichiers `CSS` et `JS` de notre projet.
+
+Vous pouvez consulter la documentation officielle ici :
+
+https://symfony.com/doc/current/frontend.html#frontend-asset-mapper
+
+### Utilisation de Webpack Encore
+
+Nous allons utiliser `Webpack Encore` pour gérer les fichiers `CSS` et `JS` de notre projet.
+
+### Utilisation des assets de base
+
+Cette troisième option est la plus simple et la plus rapide pour commencer à utiliser des assets dans votre projet Symfony.
+
+
+
 
 
 
@@ -2096,25 +2130,6 @@ Retour au [Menu de navigation](#menu-de-navigation)
 ---
 
 
-### Choix du template
-
-Nous allons utiliser le template `bootstrap Business frontpage` pour notre projet :
-
-https://startbootstrap.com/template/business-frontpage
-
-Nous l'avons dézippé dans le dossier `datas` et nous allons le modifier pour l'adapter à notre projet.
-
-J'ai mis les `JS` et `CSS` du template pour les utiliser, ils sont donc pour le `js` dans `app.js` et pour le style dans `app.css`.
-
-```bash
-npm run build
-```
-
----
-
-Retour au [Menu de navigation](#menu-de-navigation)
-
----
 
 #### Modification de base.html.twig
 
