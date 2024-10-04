@@ -62,6 +62,7 @@ https://sym6.cf2m.be/
   - [Twig : Création d'un template de base](#twig--création-dun-template-de-base)
   - [Choix du template](#choix-du-template)
   - [Utilisation par défaut de AssetMapper](#utilisation-par-défaut-de-assetmapper)
+    - [Modification du fichier `templates/base.html.twig` Pour utiliser `AssetMapper`](#modification-du-fichier-templatesbasehtmltwig-pour-utiliser-assetmapper)
   - [Utilisation de Webpack Encore](#utilisation-de-webpack-encore)
   - [Utilisation des assets de base](#utilisation-des-assets-de-base)
     - [Modification du fichier `templates/base.html.twig`](#modification-du-fichier-templatesbasehtmltwig)
@@ -1937,6 +1938,7 @@ https://startbootstrap.com/template/business-frontpage
 Nous pouvons le dézipper dans le dossier `datas` et nous allons le modifier pour l'adapter à notre projet.
 
 
+[v0.5.1](https://github.com/mikhawa/Symfony-6.4-LTS/tree/main/datas)
 
 ---
 
@@ -1952,9 +1954,57 @@ Vous pouvez consulter la documentation officielle ici :
 
 https://symfony.com/doc/current/frontend.html#frontend-asset-mapper
 
+---
+
+Retour au [Menu de navigation](#menu-de-navigation)
+
+---
+
+
+#### Modification du fichier `templates/base.html.twig` Pour utiliser `AssetMapper`
+
+Ce fichier va contenir le code HTML de base de notre application. C'est là que nous créerons les blocks principaux qui seront utilisés par toutes les autres vues de notre projet.
+
+```twig
+{# templates/base.html.twig #}
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}Notre Blog {% endblock %}</title>
+        <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 
+        viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>">
+         {% block stylesheets %}
+        {% endblock %}
+
+        {% block javascripts %}
+            {# Block de AssetMapper #}
+            {% block importmap %}{{ importmap('app') }}{% endblock %}
+        {% endblock %}
+    </head>
+    <body>
+        {% block body %}{% endblock %}
+    </body>
+</html>
+```
+
+Nous voyons dans les commentaires que nous pouvons utiliser `importmap` et `AssetMapper` pour gérer les fichiers `CSS` et `JS` de notre projet.
+
+---
+
+Retour au [Menu de navigation](#menu-de-navigation)
+
+---
+
 ### Utilisation de Webpack Encore
 
 Nous allons utiliser `Webpack Encore` pour gérer les fichiers `CSS` et `JS` de notre projet.
+
+---
+
+Retour au [Menu de navigation](#menu-de-navigation)
+
+---
 
 ### Utilisation des assets de base
 
@@ -1962,7 +2012,11 @@ Cette troisième option est la plus simple et la plus rapide pour commencer à u
 
 
 
+---
 
+Retour au [Menu de navigation](#menu-de-navigation)
+
+---
 
 
 #### Modification du fichier `templates/base.html.twig`
