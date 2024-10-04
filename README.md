@@ -1911,6 +1911,12 @@ Retour au [Menu de navigation](#menu-de-navigation)
 
 ### Utilisation par défaut de AssetMapper
 
+Depuis cette version LTS de Symfony, le bundle `AssetMapper` est utilisé par défaut pour gérer les fichiers `CSS` et `JS` de notre projet.
+
+Vous pouvez consulter la documentation officielle ici :
+
+https://symfony.com/doc/current/frontend.html#frontend-asset-mapper
+
 # HERE
 
 ### Twig : Création d'un template de base
@@ -1961,6 +1967,10 @@ Pour cela il faut installer le bundle `Webpack Encore` :
 ```bash
 composer require symfony/webpack-encore-bundle
 ```
+
+Documentation officielle :
+
+https://symfony.com/doc/current/frontend/encore/index.html
 
 #### Installation de Yarn
 
