@@ -1990,6 +1990,8 @@ Ce fichier va contenir le code HTML de base de notre application. C'est là que 
 
 Nous voyons dans les commentaires que nous pouvons utiliser `importmap` et `AssetMapper` pour gérer les fichiers `CSS` et `JS` de notre projet.
 
+[v0.5.2](https://github.com/mikhawa/Symfony-6.4-LTS/commit/76f0f56f3df7483cc857381c9fa4dfa78fd37e5c#diff-5a6565b208e6ab8222ae5be3180f45af0410b09d94250b64f42d7e7041bd4250)
+
 ---
 
 Retour au [Menu de navigation](#menu-de-navigation)
