@@ -66,6 +66,7 @@ https://sym6.cf2m.be/
     - [Modification du fichier `templates/base.html.twig` Pour utiliser `AssetMapper`](#modification-du-fichier-templatesbasehtmltwig-pour-utiliser-assetmapper)
     - [Utilisation de AssetMapper](#utilisation-de-assetmapper)
     - [Installation de Bootstrap pour AssetMapper](#installation-de-bootstrap-pour-assetmapper)
+    - [Installation des autres fichiers pour AssetMapper](#installation-des-autres-fichiers-pour-assetmapper)
   - [Utilisation de Webpack Encore](#utilisation-de-webpack-encore)
   - [Utilisation des assets de base](#utilisation-des-assets-de-base)
     - [Modification du fichier `templates/base.html.twig`](#modification-du-fichier-templatesbasehtmltwig)
@@ -2161,13 +2162,25 @@ Dorénavant, nous pouvons utiliser `Bootstrap` dans notre projet, car les lignes
 {# .... #}
 ```
 
-[v0.5.3](
+[v0.5.3](https://github.com/mikhawa/Symfony-6.4-LTS/commit/c6873c1115c5b876cc7ee221b4c42602596756a9#diff-489e15dd56f2315dc02d3d1723571cdad5a1b6848609eb5aeb0b476118bb8236)
+
 
 ---
 
 Retour au [Menu de navigation](#menu-de-navigation)
 
 ---
+
+#### Installation des autres fichiers pour AssetMapper
+
+Nous allons installer les autres fichiers nécessaires pour notre projet :
+
+```bash
+php bin/console importmap:require @popperjs/core@2.11.6
+php bin/console importmap:require @hotwired/turbo@7.0.0
+php bin/console importmap:require @hotwired/stimulus@3.0.0
+php bin/console importmap:require @symfony/stimulus-bundle@2.0.0
+```
 
 
 ### Utilisation de Webpack Encore
