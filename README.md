@@ -2127,6 +2127,48 @@ Mais ce n'est pas suffisant, si nous regardons le code du fichier `templates/blo
     {# .... #}
 ```
 
+Dans ´assets/app.js´ nous allons importer `Bootstrap` :
+
+```js
+// assets/app.js
+import './bootstrap.js';
+/*
+ * Welcome to your app's main JavaScript file!
+ *
+ * This file will be included onto the page via the importmap() Twig function,
+ * which should already be in your base.html.twig.
+ */
+// Importation de bootstrap en CSS
+import 'bootstrap/dist/css/bootstrap.min.css';
+import './styles/app.css';
+
+// Importation de bootstrap en JS
+import './vendor/bootstrap/bootstrap.index.js'
+
+console.log('This log comes from assets/app.js - welcome to AssetMapper! 🎉');
+
+```
+
+Dorénavant, nous pouvons utiliser `Bootstrap` dans notre projet, car les lignes suivantes ont été appelées dans `base.html.twig` :
+
+```twig
+{# templates/base.html.twig #}
+{# .... le CSS de Bootstrap #}
+<link rel="stylesheet" href="/assets/vendor/bootstrap/dist/css/bootstrap.min-ada06aa88e45673039ebe5d54a97f37e.css">
+<link rel="stylesheet" href="/assets/styles/app-713d9828d7058036a44786836080554c.css">
+{# .... le JS de Bootstrap #}
+<link rel="modulepreload" href="/assets/vendor/bootstrap/bootstrap.index-5ee5492573d857a352e68ba2ab07c78d.js">
+{# .... #}
+```
+
+[v0.5.3](
+
+---
+
+Retour au [Menu de navigation](#menu-de-navigation)
+
+---
+
 
 ### Utilisation de Webpack Encore
 
