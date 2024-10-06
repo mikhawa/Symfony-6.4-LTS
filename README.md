@@ -1952,7 +1952,9 @@ Depuis cette version LTS de Symfony, le bundle `AssetMapper` est utilisé par d�
 
 Vous pouvez consulter la documentation officielle ici :
 
-https://symfony.com/doc/current/frontend.html#frontend-asset-mapper
+https://symfony.com/doc/current/frontend/asset_mapper.html
+
+
 
 ---
 
@@ -2012,7 +2014,9 @@ Retour au [Menu de navigation](#menu-de-navigation)
 
 Cette troisième option est la plus simple et la plus rapide pour commencer à utiliser des assets dans votre projet Symfony.
 
+Documentation officielle :
 
+https://symfony.com/doc/current/components/asset.html
 
 ---
 
