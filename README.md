@@ -2175,15 +2175,45 @@ Retour au [Menu de navigation](#menu-de-navigation)
 
 #### Installation des autres fichiers pour AssetMapper
 
-Nous allons installer les autres fichiers nécessaires pour notre projet :
+Nous allons installer les autres fichiers nécessaires du template actuel pour notre projet dans le système de `assests` de Symfony.
 
-```bash
-php bin/console importmap:require @popperjs/core@2.11.6
-php bin/console importmap:require @hotwired/turbo@7.0.0
-php bin/console importmap:require @hotwired/stimulus@3.0.0
-php bin/console importmap:require @symfony/stimulus-bundle@2.0.0
+Venants du template `Business frontpage` et à mettre dans le dossier `assets` :
+- assets/images/favicon.ico (à changer dans `templates/base.html.twig`)
+- assets/styles/styles.css (à mettre dans `assets/app.js`)
+
+
+Venant de CDN et à garder tel quel :
+- https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css
+- https://cdn.startbootstrap.com/sb-forms-0.4.1.js
+
+Voici le fichier `templates/base.html.twig` :
+
+```twig
+{# templates/base.html.twig #}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Notre Blog {% endblock %}</title>
+    <link rel="icon" href="{{ asset('images/favicon.ico') }}">
+        {% block stylesheets %}
+            <!-- Bootstrap icons-->
+            <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet" />
+        {% endblock %}
+
+        {% block javascripts %}
+            {# Block de AssetMapper #}
+            {% block importmap %}{{ importmap('app') }}{% endblock %}
+            <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
+        {% endblock %}
+    </head>
+    <body>
+        {% block body %}{% endblock %}
+    </body>
+</html>
 ```
 
+[v0.5.4](
 
 ### Utilisation de Webpack Encore
 

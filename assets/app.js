@@ -8,9 +8,11 @@ import './bootstrap.js';
  */
 // Importation de bootstrap en CSS
 import 'bootstrap/dist/css/bootstrap.min.css';
+// Importation du CSS additionnel du template
+import './styles/styles.css';
 import './styles/app.css';
 
 // Importation de bootstrap en JS
-import './vendor/bootstrap/bootstrap.index.js'
+import './vendor/bootstrap/bootstrap.index.js';
 
 console.log('This log comes from assets/app.js - welcome to AssetMapper! 🎉');
