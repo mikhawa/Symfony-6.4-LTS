@@ -62,7 +62,10 @@ https://sym6.cf2m.be/
   - [Twig : Création d'un template de base](#twig--création-dun-template-de-base)
   - [Choix du template](#choix-du-template)
   - [Utilisation par défaut de AssetMapper](#utilisation-par-défaut-de-assetmapper)
+    - [Installation de AssetMapper](#installation-de-assetmapper)
     - [Modification du fichier `templates/base.html.twig` Pour utiliser `AssetMapper`](#modification-du-fichier-templatesbasehtmltwig-pour-utiliser-assetmapper)
+    - [Utilisation de AssetMapper](#utilisation-de-assetmapper)
+    - [Installation de Bootstrap pour AssetMapper](#installation-de-bootstrap-pour-assetmapper)
   - [Utilisation de Webpack Encore](#utilisation-de-webpack-encore)
   - [Utilisation des assets de base](#utilisation-des-assets-de-base)
     - [Modification du fichier `templates/base.html.twig`](#modification-du-fichier-templatesbasehtmltwig)
@@ -1954,11 +1957,51 @@ Il est recommandé d'ailleurs d'utiliser `AssetMapper` à la place de `Webpack E
 
 Bien que recommandé, il est toujours possible d'utiliser `Webpack Encore` ou les `assets` de base de Symfony.
 
+Le composant `AssetMapper` vous permet d'écrire du `JavaScript` et du `CSS` modernes sans la complexité de l'utilisation d'un outil de construction comme `Webpack`. 
+
+**Le principal défaut de cette méthode est un code source plus lourd et moins 'propre', mais cela peut être compensé par une meilleure performance de chargement.**
+
+Les navigateurs prennent déjà en charge de nombreuses fonctionnalités `JavaScript modernes` telles que les `importclasses statement` et `ES6`. Et le protocole `HTTP/2` signifie que la combinaison de vos ressources pour réduire les connexions `HTTP` n'est plus urgente. Ce composant est une couche légère qui permet de diffuser vos fichiers directement dans le navigateur.
+
+**Le composant a deux caractéristiques principales :**
+- Il permet de définir des `importmaps` pour charger des fichiers `JavaScript` et `CSS` dans le navigateur en temps réel.
+- Il met à disposition en temps réels les fichiers se trouvant dans le dossier `assets` de votre projet, et pourra être utilisé avec `Twig` pour les afficher : par exemple `assets/images/product.jpg` pourra être récupéré avec `asset('images/product.jpg')`.
+
 Vous pouvez consulter la documentation officielle ici :
 
 https://symfony.com/doc/current/frontend/asset_mapper.html
 
+---
 
+Retour au [Menu de navigation](#menu-de-navigation)
+
+---
+
+#### Installation de AssetMapper
+
+Bien qu'installé par défaut avec `--webapp` vous pouvez l'installer avec la commande suivante :
+
+```bash
+composer require symfony/asset-mapper symfony/asset symfony/twig-pack
+```
+
+En plus de cela `symfony/asset-mapper`, cela garantit également que vous disposez du composant `Asset` et de `Twig`.
+
+Si vous utilisez `Symfony Flex` (par défaut), vous avez terminé ! La recette vient d'ajouter un certain nombre de fichiers :
+
+- assets/app.js Votre fichier JavaScript principal ;
+- assets/styles/app.css Votre fichier CSS principal ;
+- config/packages/asset_mapper.yaml Où vous définissez vos « chemins » d’actifs ;
+- importmap.php Votre fichier de configuration importmap.
+
+Il a également mis à jour le `templates/base.html.twig` :
+
+```twig
+{# templates/base.html.twig #}
+{% block javascripts %}
++    {% block importmap %}{{ importmap('app') }}{% endblock %}
+{% endblock %}
+```
 
 ---
 
@@ -2003,6 +2046,87 @@ Nous voyons dans les commentaires que nous pouvons utiliser `importmap` et `Asse
 Retour au [Menu de navigation](#menu-de-navigation)
 
 ---
+
+#### Utilisation de AssetMapper
+
+L'avantage principal d'utiliser `AssetMapper` en `dev` est que vous pouvez utiliser les fichiers `CSS`, `images`, et `JS` de votre projet directement dans le navigateur sans avoir à les compiler.
+
+Il faudra néanmoins compiler les fichiers `CSS` et `JS` pour les mettre en `prod`, c'est-à-dire en production.
+
+Il suffira de lancer la commande suivante pour compiler les fichiers `CSS` et `JS` :
+
+```bash
+# en mode production uniquement !
+# Il ne faudra pas oublier de supprimer le
+# dossier public/assets avant de le régénérer
+php bin/console asset-map:compile
+```
+
+Nous allons regarder comment utiliser `AssetMapper` pour mettre notre template `Bootstrap` dans notre projet.
+
+---
+
+Retour au [Menu de navigation](#menu-de-navigation)
+
+---
+
+#### Installation de Bootstrap pour AssetMapper
+
+Nous allons installer `Bootstrap`, dans la version pour notre projet :
+
+```bash
+php bin/console importmap:require bootstrap@5.2.3
+```
+
+Le fichier `importmap.php` sera mis à jour avec les fichiers `CSS` et `JS` de `Bootstrap`.
+
+Mais ce n'est pas suffisant, si nous regardons le code du fichier `templates/blog/index.html.twig`, nous voyons que nous avons besoin de `Bootstrap` pour afficher correctement notre page : 
+    
+```twig
+    {# templates/blog/index.html.twig #}
+    {# .... #}
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22
+        viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>">
+
+
+<link rel="stylesheet" href="/assets/styles/app-713d9828d7058036a44786836080554c.css">
+<script type="importmap" data-turbo-track="reload">
+{
+    "imports": {
+        "app": "/assets/app-8e03e6dbe2f283051f848709251e9c4e.js",
+        "/assets/bootstrap.js": "/assets/bootstrap-c423b8bbc1f9cae218c105ca8ca9f767.js",
+        "/assets/styles/app.css": "data:application/javascript,",
+        "@symfony/stimulus-bundle": "/assets/@symfony/stimulus-bundle/loader-870999a02e9fc147c034d522826ea70d.js",
+        "@hotwired/stimulus": "/assets/vendor/@hotwired/stimulus/stimulus.index-b5b1d00e42695b8959b4a1e94e3bc92a.js",
+        "/assets/@symfony/stimulus-bundle/controllers.js": "/assets/@symfony/stimulus-bundle/controllers-9d42643c079ab11f27a3a9614f81cc2f.js",
+        "/assets/@symfony/ux-turbo/turbo_controller.js": "/assets/@symfony/ux-turbo/turbo_controller-ce5e32dafdec0b7752f02e3e2cb25751.js",
+        "/assets/controllers/hello_controller.js": "/assets/controllers/hello_controller-55882fcad241d2bea50276ea485583bc.js",
+        "@hotwired/turbo": "/assets/vendor/@hotwired/turbo/turbo.index-810f44ef1a202a441e4866b7a4c72d11.js",
+        "bootstrap": "/assets/vendor/bootstrap/bootstrap.index-5ee5492573d857a352e68ba2ab07c78d.js",
+        "@popperjs/core": "/assets/vendor/@popperjs/core/core.index-ceb5b6c0f9e1d3f6c78ef733facfdcda.js",
+        "bootstrap/dist/css/bootstrap.min.css": "data:application/javascript,document.head.appendChild%28Object.assign%28document.createElement%28%22link%22%29%2C%7Brel%3A%22stylesheet%22%2Chref%3A%22%2Fassets%2Fvendor%2Fbootstrap%2Fdist%2Fcss%2Fbootstrap.min-ada06aa88e45673039ebe5d54a97f37e.css%22%7D%29%29"
+    }
+}
+</script>
+<!-- ES Module Shims: Import maps polyfill for modules browsers without import maps support -->
+<script async src="https://ga.jspm.io/npm:es-module-shims@1.10.0/dist/es-module-shims.js" data-turbo-track="reload"></script>
+<link rel="modulepreload" href="/assets/app-8e03e6dbe2f283051f848709251e9c4e.js">
+<link rel="modulepreload" href="/assets/bootstrap-c423b8bbc1f9cae218c105ca8ca9f767.js">
+<link rel="modulepreload" href="/assets/@symfony/stimulus-bundle/loader-870999a02e9fc147c034d522826ea70d.js">
+<link rel="modulepreload" href="/assets/vendor/@hotwired/stimulus/stimulus.index-b5b1d00e42695b8959b4a1e94e3bc92a.js">
+<link rel="modulepreload" href="/assets/@symfony/stimulus-bundle/controllers-9d42643c079ab11f27a3a9614f81cc2f.js">
+<link rel="modulepreload" href="/assets/@symfony/ux-turbo/turbo_controller-ce5e32dafdec0b7752f02e3e2cb25751.js">
+<link rel="modulepreload" href="/assets/controllers/hello_controller-55882fcad241d2bea50276ea485583bc.js">
+<link rel="modulepreload" href="/assets/vendor/@hotwired/turbo/turbo.index-810f44ef1a202a441e4866b7a4c72d11.js">
+<script type="module" data-turbo-track="reload">import 'app';</script>            </head>
+    <body>
+            <div class="example-wrapper">
+        <h1>Page d'accueil ✅</h1>
+
+    </div>
+    {# .... #}
+```
+
 
 ### Utilisation de Webpack Encore
 
@@ -2068,7 +2192,7 @@ Nous voyons dans les commentaires que nous pouvons utiliser `Webpack Encore` pou
 
 #### Installation de Webpack Encore
 
-Pour cela il faut installer le bundle `Webpack Encore` :
+Pour cela, il faut installer le bundle `Webpack Encore` :
 
 ```bash
 composer require symfony/webpack-encore-bundle
@@ -2090,7 +2214,7 @@ Puis
 yarn install
 ```
 
-Pour cela vous devez avoir installé `Yarn` sur votre machine ainsi que `NodeJS` :
+Pour cela, vous devez avoir installé `Yarn` sur votre machine ainsi que `NodeJS` :
 
 https://nodejs.org/fr/download/
 
@@ -2149,7 +2273,7 @@ Encore
         .addStyleEntry('bootstrapCSS', './node_modules/bootstrap/dist/css/bootstrap.min.css')
 ```
 
-Puis nous allons modifier le fichier `base.html.twig` pour charger les fichiers `CSS` et `JS` de `Bootstrap` :
+Puis, nous allons modifier le fichier `base.html.twig` pour charger les fichiers `CSS` et `JS` de `Bootstrap` :
 
 ```twig
 <!DOCTYPE html>
