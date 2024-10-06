@@ -2213,7 +2213,15 @@ Voici le fichier `templates/base.html.twig` :
 </html>
 ```
 
-[v0.5.4](
+[v0.5.4](https://github.com/mikhawa/Symfony-6.4-LTS/commit/d97717d12f06e5bd5bc4ab387b63b64a1f10a158#diff-5a6565b208e6ab8222ae5be3180f45af0410b09d94250b64f42d7e7041bd4250)
+
+---
+
+Retour au [Menu de navigation](#menu-de-navigation)
+
+---
+
+# HERE
 
 ### Utilisation de Webpack Encore
 
