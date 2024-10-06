@@ -1958,6 +1958,8 @@ Il est recommandé d'ailleurs d'utiliser `AssetMapper` à la place de `Webpack E
 
 Bien que recommandé, il est toujours possible d'utiliser `Webpack Encore` ou les `assets` de base de Symfony.
 
+Sont installés par défaut avec `--webapp` : `Stimulus` et `Turbo`, qui sont des bibliothèques de `JavaScript` pour améliorer l'expérience utilisateur.
+
 Le composant `AssetMapper` vous permet d'écrire du `JavaScript` et du `CSS` modernes sans la complexité de l'utilisation d'un outil de construction comme `Webpack`. 
 
 **Le principal défaut de cette méthode est un code source plus lourd et moins 'propre', mais cela peut être compensé par une meilleure performance de chargement.**
