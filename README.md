@@ -1950,6 +1950,10 @@ Retour au [Menu de navigation](#menu-de-navigation)
 
 Depuis cette version LTS de Symfony, le bundle `AssetMapper` est utilisé par défaut pour gérer les fichiers `CSS` et `JS` de notre projet.
 
+Il est recommandé d'ailleurs d'utiliser `AssetMapper` à la place de `Webpack Encore` pour gérer nos assets.
+
+Bien que recommandé, il est toujours possible d'utiliser `Webpack Encore` ou les `assets` de base de Symfony.
+
 Vous pouvez consulter la documentation officielle ici :
 
 https://symfony.com/doc/current/frontend/asset_mapper.html
@@ -2002,7 +2006,15 @@ Retour au [Menu de navigation](#menu-de-navigation)
 
 ### Utilisation de Webpack Encore
 
-Nous allons utiliser `Webpack Encore` pour gérer les fichiers `CSS` et `JS` de notre projet.
+Nous pouvons également utiliser `Webpack Encore` pour gérer les fichiers `CSS` et `JS` de notre projet.
+
+```bash
+# désinstallation de AssetMapper
+composer remove symfony/ux-turbo symfony/asset-mapper symfony/stimulus-bundle
+# installation de Webpack Encore
+composer require symfony/webpack-encore-bundle symfony/ux-turbo symfony/stimulus-bundle
+```
+
 
 ---
 
