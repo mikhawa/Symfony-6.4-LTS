@@ -2366,7 +2366,7 @@ Nous pouvons maintenant utiliser le template dans notre projet :
 
 ```
 ---
-[Suite commune à tous les systèmes de gestion des assets](#création-de-la-section-catégories) !
+[Suite commune à tous les systèmes de gestion des assets](#création-de-la-page-daccueil) !
 
 ---
 
