@@ -61,6 +61,7 @@ https://sym6.cf2m.be/
     - [Modification du contrôleur pour la page d'accueil](#modification-du-contrôleur-pour-la-page-daccueil)
   - [Twig : Création d'un template de base](#twig--création-dun-template-de-base)
   - [Choix du template](#choix-du-template)
+- [Choix du système de gestion des assets](#choix-du-système-de-gestion-des-assets)
   - [Utilisation par défaut de AssetMapper](#utilisation-par-défaut-de-assetmapper)
     - [Installation de AssetMapper](#installation-de-assetmapper)
     - [Modification du fichier `templates/base.html.twig` Pour utiliser `AssetMapper`](#modification-du-fichier-templatesbasehtmltwig-pour-utiliser-assetmapper)
@@ -1951,6 +1952,22 @@ Retour au [Menu de navigation](#menu-de-navigation)
 
 ---
 
+## Choix du système de gestion des assets
+
+Vous avez le choix entre plusieurs systèmes de gestion des assets pour votre projet Symfony 6.4 LTS :
+
+- AssetMapper
+- Webpack Encore
+- Assetic
+
+Nous verrons l'installation et l'utilisation de chacun de ces systèmes sur les premières pages de notre blog. Le reste du projet sera réalisé avec `Webpack Encore` et sera compatible avec les 3 systèmes.
+
+---
+
+Retour au [Menu de navigation](#menu-de-navigation)
+
+---
+
 ### Utilisation par défaut de AssetMapper
 
 Depuis cette version LTS de Symfony, le bundle `AssetMapper` est utilisé par défaut pour gérer les fichiers `CSS` et `JS` de notre projet.
@@ -1993,10 +2010,10 @@ En plus de cela `symfony/asset-mapper`, cela garantit également que vous dispos
 
 Si vous utilisez `Symfony Flex` (par défaut), vous avez terminé ! La recette vient d'ajouter un certain nombre de fichiers :
 
-- assets/app.js Votre fichier JavaScript principal ;
-- assets/styles/app.css Votre fichier CSS principal ;
-- config/packages/asset_mapper.yaml Où vous définissez vos « chemins » d’actifs ;
-- importmap.php Votre fichier de configuration importmap.
+- `assets/app.js` Votre fichier JavaScript principal ;
+- `assets/styles/app.css` Votre fichier CSS principal ;
+- `config/packages/asset_mapper.yaml` Où vous définissez vos « chemins » d’actifs ;
+- `importmap.php` Votre fichier de configuration importmap.
 
 Il a également mis à jour le `templates/base.html.twig` :
 
@@ -2050,6 +2067,7 @@ Nous voyons dans les commentaires que nous pouvons utiliser `importmap` et `Asse
 Retour au [Menu de navigation](#menu-de-navigation)
 
 ---
+
 
 #### Utilisation de AssetMapper
 
