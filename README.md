@@ -2365,6 +2365,8 @@ Nous pouvons maintenant utiliser le template dans notre projet :
 {% endblock %}
 
 ```
+---
+[Suite commune à tous les systèmes de gestion des assets](#création-de-la-section-catégories) !
 
 ---
 
@@ -2372,7 +2374,6 @@ Retour au [Menu de navigation](#menu-de-navigation)
 
 ---
 
-# ICI
 
 
 ### Utilisation de Webpack Encore
@@ -2737,7 +2738,9 @@ Nous pouvons maintenant utiliser le template dans notre projet :
 
 [v0.4.2](https://github.com/mikhawa/symfony-2023-05-10/commit/528c63a9bbd6db6ffb056f30708c8910721285d5)
 
-Nous pouvons par la suite afficher les 12 derniers articles sur la page d'accueil avec le findBy() de Doctrine:
+### Création de la page d'accueil
+
+Nous pouvons par la suite afficher les 12 derniers articles sur la page d'accueil avec le findBy() de Doctrine :
 
 ```php
 <?php
