@@ -2365,6 +2365,7 @@ Nous pouvons maintenant utiliser le template dans notre projet :
 {% endblock %}
 
 ```
+
 ---
 [Suite commune à tous les systèmes de gestion des assets](#création-de-la-page-daccueil) !
 
@@ -2387,20 +2388,6 @@ composer remove symfony/ux-turbo symfony/asset-mapper symfony/stimulus-bundle
 composer require symfony/webpack-encore-bundle symfony/ux-turbo symfony/stimulus-bundle
 ```
 
-
----
-
-Retour au [Menu de navigation](#menu-de-navigation)
-
----
-
-### Utilisation des assets de base
-
-Cette troisième option est la plus simple et la plus rapide pour commencer à utiliser des assets dans votre projet Symfony.
-
-Documentation officielle :
-
-https://symfony.com/doc/current/components/asset.html
 
 ---
 
@@ -2737,6 +2724,26 @@ Nous pouvons maintenant utiliser le template dans notre projet :
 ```
 
 [v0.4.2](https://github.com/mikhawa/symfony-2023-05-10/commit/528c63a9bbd6db6ffb056f30708c8910721285d5)
+
+### Utilisation des assets de base
+
+Cette troisième option est la plus simple et la plus rapide pour commencer à utiliser des assets dans votre projet Symfony.
+
+Documentation officielle :
+
+https://symfony.com/doc/current/components/asset.html
+
+
+---
+[Suite commune à tous les systèmes de gestion des assets](#création-de-la-page-daccueil) !
+
+---
+
+Retour au [Menu de navigation](#menu-de-navigation)
+
+---
+
+
 
 ### Création de la page d'accueil
 
