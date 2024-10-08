@@ -1956,9 +1956,9 @@ Retour au [Menu de navigation](#menu-de-navigation)
 
 Vous avez le choix entre plusieurs systèmes de gestion des assets pour votre projet Symfony 6.4 LTS :
 
-- AssetMapper
-- Webpack Encore
-- Assetic
+- [AssetMapper](#utilisation-par-défaut-de-assetmapper)
+- [Webpack Encore](#utilisation-de-webpack-encore)
+- [Assetic](#utilisation-des-assets-de-base)
 
 Nous verrons l'installation et l'utilisation de chacun de ces systèmes sur les premières pages de notre blog. Le reste du projet sera réalisé avec `Webpack Encore` et sera compatible avec les 3 systèmes.
 
