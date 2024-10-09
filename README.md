@@ -2860,8 +2860,8 @@ Nous allons maintenant afficher les articles par catégorie:
         // récupération de toutes les catégories pour le menu
         $categories = $entityManager->getRepository(Categorie::class)->findAll();
         // récupération de la catégorie dont le slug est $category_slug
-        $categorie = $entityManager->getRepository(Categorie::class)->findOneBy(['CategorySlug' => $slug]);
-        // récupération des articles de la catégorie grâce à la relation ManyToMany de categorie vers articlesn puis prises de valeurs
+        $categorie = $entityManager->getRepository(Categorie::class)->findOneBy(['CategorieSlug' => $slug]);
+        // récupération des articles de la catégorie grâce à la relation ManyToMany de cétegorie vers articles puis prises de valeurs
         $articles = $categorie->getCategorieM2mArticle()->getValues();
         return $this->render('blog/categorie.html.twig', [
             // on envoie la catégorie à la vue
